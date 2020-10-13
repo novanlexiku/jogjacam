@@ -29,6 +29,44 @@
                         <div class="col text-right">
                             <a href="#!" data-toggle="modal" data-target="#largeModal" class="btn btn-sm btn-success"><span class="ni ni-fat-add"></span>Tambah Barang</a>
                         </div>
+                        <div class="mt-1">
+                        <?php
+                            $msg = $this->session->flashdata('msg');
+                            if ($msg == "tambahbrg") {
+                            ?>
+                                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                    <span class="alert-icon"><i class="ni ni-like-2"></i></span>
+                                    <span class="alert-text"><strong>Sukses!</strong> Tambah Data Barang!</span>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            <?php
+                            }; ?>
+                            <?php
+                            if ($msg == "editbrg") {
+                            ?>
+                                <div class="alert alert-info alert-dismissible fade show" role="alert">
+                                    <span class="alert-icon"><i class="ni ni-like-2"></i></span>
+                                    <span class="alert-text"><strong>Sukses!</strong> Update Data Barang!</span>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            <?php
+                            } elseif ($msg == "hapusbrg") {
+                            ?>
+                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                    <span class="alert-icon"><i class="ni ni-like-2"></i></span>
+                                    <span class="alert-text"><strong>Sukses!</strong> hapus Barang!</span>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            <?php
+                            }
+                            ?>
+                        </div>
 
                 </div>
                 <div class="table-responsive">
@@ -70,7 +108,7 @@
                                 <tr>
                                     <td style="text-align:center;"><?php echo $no; ?></td>
                                     <td><?php echo $id; ?></td>
-                                    <td> <img class="img-circle" width="50" src="<?php echo base_url() . 'assets/images/' . $gbr; ?>">
+                                    <td> <img class="img-circle" width="50" src="<?php echo base_url() . 'assets/upload/' . $gbr; ?>">
                                     </td>
                                     <td><?php echo $nm; ?></td>
                                     <td style="text-align:center;"><?php echo $satuan; ?></td>
@@ -107,7 +145,7 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 
             </div>
-            <form class="form-horizontal" method="post" action="<?php echo base_url() . 'index.php/admin/barang/tambah_barang' ?>">
+            <form class="form-horizontal" method="post" action="<?php echo base_url() . 'index.php/admin/barang/tambah_barang' ?>" enctype="multipart/form-data">
                 <div class="modal-body">
 
                     <div class="form-group">
