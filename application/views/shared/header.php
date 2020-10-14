@@ -67,7 +67,8 @@
     <!-- Page plugins -->
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/dashboard/assets/vendor/fullcalendar/dist/fullcalendar.min.css">
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/dashboard/assets/vendor/sweetalert2/dist/sweetalert2.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.22/b-1.6.5/datatables.min.css"/>
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/dashboard/assets/vendor/summernote-master/summernote-lite.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.22/b-1.6.5/datatables.min.css" />
 
     <!-- Argon CSS -->
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/dashboard/css/dashboard.css" type="text/css">
@@ -193,8 +194,14 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="pengguna">
-                                <i class="ni ni-ui-04"></i>
+                                <i class="ni ni-circle-08"></i>
                                 <span class="nav-link-text">Pengguna</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="daftartutorial">
+                                <i class="ni ni-air-baloon"></i>
+                                <span class="nav-link-text">Tutorial</span>
                             </a>
                         </li>
                         <li class="nav-item">

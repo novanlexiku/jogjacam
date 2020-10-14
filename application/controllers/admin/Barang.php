@@ -47,7 +47,7 @@ class Barang extends CI_Controller
 
 
 			//Konfigurasi upload gambar
-			$config['upload_path'] = './assets/upload'; //path folder
+			$config['upload_path'] = './assets/upload/images'; //path folder
 			$config['allowed_types'] = 'gif|jpg|png|jpeg|bmp'; //type yang dapat diakses bisa anda sesuaikan
 			$config['encrypt_name'] = TRUE; //nama yang terupload nantinya
 			$this->upload->initialize($config);
@@ -56,13 +56,13 @@ class Barang extends CI_Controller
 					$gbr = $this->upload->data();
 					//Compress Image
 					$config['image_library'] = 'gd2';
-					$config['source_image'] = './assets/upload/' . $gbr['file_name'];
+					$config['source_image'] = './assets/upload/images/' . $gbr['file_name'];
 					$config['create_thumb'] = FALSE;
 					$config['maintain_ratio'] = FALSE;
 					$config['quality'] = '60%';
 					$config['width'] = 100;
 					$config['height'] = 100;
-					$config['new_image'] = './assets/upload/' . $gbr['file_name'];
+					$config['new_image'] = './assets/upload/images/' . $gbr['file_name'];
 					$this->load->library('image_lib', $config);
 					$this->image_lib->resize();
 
@@ -93,7 +93,7 @@ class Barang extends CI_Controller
 			$min_stok = $this->input->post('min_stok');
 
 			//Konfigurasi upload gambar
-			$config['upload_path'] = './assets/upload'; //path folder
+			$config['upload_path'] = './assets/upload/images'; //path folder
 			$config['allowed_types'] = 'gif|jpg|png|jpeg|bmp'; //type yang dapat diakses bisa anda sesuaikan
 			$config['encrypt_name'] = TRUE; //nama yang terupload nantinya
 			$this->upload->initialize($config);
@@ -102,13 +102,13 @@ class Barang extends CI_Controller
 					$gbr = $this->upload->data();
 					//Compress Image
 					$config['image_library'] = 'gd2';
-					$config['source_image'] = './assets/upload/' . $gbr['file_name'];
+					$config['source_image'] = './assets/upload/images/' . $gbr['file_name'];
 					$config['create_thumb'] = FALSE;
 					$config['maintain_ratio'] = FALSE;
 					$config['quality'] = '60%';
 					$config['width'] = 100;
 					$config['height'] = 100;
-					$config['new_image'] = './assets/upload/' . $gbr['file_name'];
+					$config['new_image'] = './assets/upload/images/' . $gbr['file_name'];
 					$this->load->library('image_lib', $config);
 					$this->image_lib->resize();
 
