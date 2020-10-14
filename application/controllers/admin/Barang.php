@@ -28,7 +28,6 @@ class Barang extends CI_Controller
 			);
 			$this->load->view('shared/header', $title);
 			$this->load->view('admin/v_barang', $data);
-			$this->load->view('shared/footer');
 		} else {
 			echo "Halaman tidak ditemukan";
 		}
@@ -92,9 +91,40 @@ class Barang extends CI_Controller
 			$harjul_grosir = str_replace(',', '', $this->input->post('harjul_grosir'));
 			$stok = $this->input->post('stok');
 			$min_stok = $this->input->post('min_stok');
-			$this->m_barang->update_barang($kobar, $nabar, $kat, $satuan, $harpok, $harjul, $harjul_grosir, $stok, $min_stok);
-			echo $this->session->set_flashdata('msg', 'editbrg');
-			redirect('barang');
+
+			//Konfigurasi upload gambar
+			$config['upload_path'] = './assets/upload'; //path folder
+			$config['allowed_types'] = 'gif|jpg|png|jpeg|bmp'; //type yang dapat diakses bisa anda sesuaikan
+			$config['encrypt_name'] = TRUE; //nama yang terupload nantinya
+			$this->upload->initialize($config);
+			if (!empty($_FILES['filefoto']['name'])) {
+				if ($this->upload->do_upload('filefoto')) {
+					$gbr = $this->upload->data();
+					//Compress Image
+					$config['image_library'] = 'gd2';
+					$config['source_image'] = './assets/upload/' . $gbr['file_name'];
+					$config['create_thumb'] = FALSE;
+					$config['maintain_ratio'] = FALSE;
+					$config['quality'] = '60%';
+					$config['width'] = 100;
+					$config['height'] = 100;
+					$config['new_image'] = './assets/upload/' . $gbr['file_name'];
+					$this->load->library('image_lib', $config);
+					$this->image_lib->resize();
+
+					$gambar = $gbr['file_name'];
+					$this->m_barang->update_barang($kobar, $gambar, $nabar, $kat, $satuan, $harpok, $harjul, $harjul_grosir, $stok, $min_stok);
+					echo $this->session->set_flashdata('msg', 'editbrg');
+					redirect('barang');
+				} else {
+					echo $this->session->set_flashdata('msg', 'error-img');
+					redirect('barang');
+				}
+			} else {
+				$this->m_barang->update_barang_noimg($kobar, $nabar, $kat, $satuan, $harpok, $harjul, $harjul_grosir, $stok, $min_stok);
+				echo $this->session->set_flashdata('msg', 'editbrg');
+				redirect('barang');
+			}
 		} else {
 			echo "Halaman tidak ditemukan";
 		}

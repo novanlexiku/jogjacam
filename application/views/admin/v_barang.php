@@ -30,7 +30,7 @@
                             <a href="#!" data-toggle="modal" data-target="#largeModal" class="btn btn-sm btn-success"><span class="ni ni-fat-add"></span>Tambah Barang</a>
                         </div>
                         <div class="mt-1">
-                        <?php
+                            <?php
                             $msg = $this->session->flashdata('msg');
                             if ($msg == "tambahbrg") {
                             ?>
@@ -58,7 +58,7 @@
                             ?>
                                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                     <span class="alert-icon"><i class="ni ni-like-2"></i></span>
-                                    <span class="alert-text"><strong>Sukses!</strong> hapus Barang!</span>
+                                    <span class="alert-text"><strong>Sukses!</strong> Hapus Barang!</span>
                                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
@@ -119,8 +119,8 @@
                                     <td style="text-align:center;"><?php echo $min_stok; ?></td>
                                     <td><?php echo $kat_nama; ?></td>
                                     <td style="text-align:center;">
-                                        <a class="btn btn-sm btn-warning" href="#modalEditPelanggan<?php echo $id ?>" data-toggle="modal" title="Edit"><span class="fa fa-edit"></span> Edit</a>
-                                        <a class="btn btn-sm btn-danger" href="#modalHapusPelanggan<?php echo $id ?>" data-toggle="modal" title="Hapus"><span class="fa fa-close"></span> Hapus</a>
+                                        <a class="btn btn-sm btn-warning" href="#modalEditBarang<?php echo $id ?>" data-toggle="modal" title="Edit"><span class="fa fa-edit"></span> Edit</a>
+                                        <a class="btn btn-sm btn-danger" href="#modalHapusBarang<?php echo $id ?>" data-toggle="modal" title="Hapus"><span class="fa fa-close"></span> Hapus</a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
@@ -243,6 +243,7 @@
 <?php
 foreach ($data->result_array() as $a) {
     $id = $a['barang_id'];
+    $gbr = $a['barang_gambar'];
     $nm = $a['barang_nama'];
     $satuan = $a['barang_satuan'];
     $harpok = $a['barang_harpok'];
@@ -253,7 +254,7 @@ foreach ($data->result_array() as $a) {
     $kat_id = $a['barang_kategori_id'];
     $kat_nama = $a['kategori_nama'];
 ?>
-    <div id="modalEditPelanggan<?php echo $id ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
+    <div id="modalEditBarang<?php echo $id ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -268,6 +269,14 @@ foreach ($data->result_array() as $a) {
                             <label class="control-label col-xs-3">Kode Barang</label>
                             <div class="col-xs-9">
                                 <input name="kobar" class="form-control" type="text" value="<?php echo $id; ?>" placeholder="Kode Barang..." readonly>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-xs-3">Gambar Barang</label>
+                            <div class="custom-file">
+                                <input type="file" name="filefoto" class="custom-file-input" id="customFileLang" lang="en">
+                                <label class="custom-file-label" for="customFileLang">Pilih Gambar</label>
                             </div>
                         </div>
 
@@ -372,7 +381,7 @@ foreach ($data->result_array() as $a) {
     $kat_id = $a['barang_kategori_id'];
     $kat_nama = $a['kategori_nama'];
 ?>
-    <div id="modalHapusPelanggan<?php echo $id ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
+    <div id="modalHapusBarang<?php echo $id ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -398,3 +407,28 @@ foreach ($data->result_array() as $a) {
 ?>
 
 <!--END MODAL-->
+
+<!-- Argon Scripts -->
+<!-- Core -->
+<script src="<?php echo base_url() ?>assets/dashboard/assets/vendor/jquery/dist/jquery.min.js"></script>
+<script src="<?php echo base_url() ?>assets/dashboard/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="<?php echo base_url() ?>assets/dashboard/assets/vendor/js-cookie/js.cookie.js"></script>
+<script src="<?php echo base_url() ?>assets/dashboard/assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
+<script src="<?php echo base_url() ?>assets/dashboard/assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
+<!-- Optional JS -->
+<script src="<?php echo base_url() ?>assets/dashboard/assets/vendor/chart.js/dist/Chart.min.js"></script>
+<script src="<?php echo base_url() ?>assets/dashboard/assets/vendor/chart.js/dist/Chart.extension.js"></script>
+
+<!-- Argon JS -->
+<script src="<?php echo base_url() ?>assets/dashboard/assets/js/dashboard.js?v=1.2.0"></script>
+<!-- Datatables JS -->
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.22/b-1.6.5/datatables.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#mydata').DataTable();
+    });
+</script>
+</body>
+
+</html>

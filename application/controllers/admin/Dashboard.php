@@ -47,7 +47,6 @@ class Dashboard extends CI_Controller
 
             $this->load->view('shared/header', $title);
             $this->load->view('admin/dashboard_view');
-            $this->load->view('shared/footer');
         } else {
             redirect('auth');
         }

@@ -67,9 +67,7 @@
     <!-- Page plugins -->
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/dashboard/assets/vendor/fullcalendar/dist/fullcalendar.min.css">
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/dashboard/assets/vendor/sweetalert2/dist/sweetalert2.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.22/b-1.6.5/datatables.min.css"/>
 
     <!-- Argon CSS -->
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/dashboard/css/dashboard.css" type="text/css">
@@ -114,20 +112,20 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#navbar-examples" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-examples">
+                            <a class="nav-link" href="#navbar-transaksi" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-transaksi">
                                 <i class="ni ni-ungroup text-orange"></i>
                                 <span class="nav-link-text">Transaksi</span>
                             </a>
-                            <div class="collapse" id="navbar-examples">
+                            <div class="collapse" id="navbar-transaksi">
                                 <ul class="nav nav-sm flex-column">
                                     <li class="nav-item">
-                                        <a href="<?php echo base_url() ?>assets/dashboard/pages/examples/login.html" class="nav-link">
+                                        <a href="penjualan" class="nav-link">
                                             <span class="sidenav-mini-icon"> J </span>
                                             <span class="sidenav-normal"> Penjualan </span>
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="<?php echo base_url() ?>assets/dashboard/pages/examples/register.html" class="nav-link">
+                                        <a href="pembelian" class="nav-link">
                                             <span class="sidenav-mini-icon"> B </span>
                                             <span class="sidenav-normal"> Pembelian </span>
                                         </a>
@@ -172,10 +170,26 @@
                             <span class="docs-normal">Master Data</span>
                         </h6>
                         <li class="nav-item">
-                            <a class="nav-link" href="barang">
+                            <a class="nav-link" href="#navbar-barang" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-barang">
                                 <i class="ni ni-spaceship"></i>
                                 <span class="nav-link-text">Barang</span>
                             </a>
+                            <div class="collapse" id="navbar-barang">
+                                <ul class="nav nav-sm flex-column">
+                                    <li class="nav-item">
+                                        <a href="kategori" class="nav-link">
+                                            <span class="sidenav-mini-icon"> K </span>
+                                            <span class="sidenav-normal"> Kategori </span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="barang" class="nav-link">
+                                            <span class="sidenav-mini-icon"> B </span>
+                                            <span class="sidenav-normal"> Barang </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="pengguna">

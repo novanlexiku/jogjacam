@@ -19,8 +19,6 @@ class Pengguna extends CI_Controller
 			);
 			$this->load->view('shared/header', $title);
 			$this->load->view('admin/v_pengguna', $data);
-			$this->load->view('shared/footer');
-
 		} else {
 			echo "Halaman tidak ditemukan";
 		}
