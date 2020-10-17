@@ -68,6 +68,7 @@
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/dashboard/assets/vendor/fullcalendar/dist/fullcalendar.min.css">
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/dashboard/assets/vendor/sweetalert2/dist/sweetalert2.min.css">
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/dashboard/assets/vendor/summernote-master/summernote-lite.min.css">
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/dashboard/assets/vendor/dropify/dropify.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.22/b-1.6.5/datatables.min.css" />
 
     <!-- Argon CSS -->
@@ -193,10 +194,26 @@
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="pengguna">
+                            <a class="nav-link" href="#navbar-pengguna" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-pengguna">
                                 <i class="ni ni-circle-08"></i>
                                 <span class="nav-link-text">Pengguna</span>
                             </a>
+                            <div class="collapse" id="navbar-pengguna">
+                                <ul class="nav nav-sm flex-column">
+                                    <li class="nav-item">
+                                        <a href="pengguna" class="nav-link">
+                                            <span class="sidenav-mini-icon"> U </span>
+                                            <span class="sidenav-normal"> Pengguna </span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="daftarstaff" class="nav-link">
+                                            <span class="sidenav-mini-icon"> S </span>
+                                            <span class="sidenav-normal"> Staff </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="daftartutorial">

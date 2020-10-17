@@ -56,6 +56,7 @@ $route['pengguna'] = 'admin/pengguna';
 $route['kategori'] = 'admin/kategori';
 $route['barang'] = 'admin/barang';
 $route['daftartutorial'] = 'admin/tutorial';
+$route['daftarstaff'] = 'admin/staff';
 
 $route['default_controller'] = 'Auth';
 $route['404_override'] = '';

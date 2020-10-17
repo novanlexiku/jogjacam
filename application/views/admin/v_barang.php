@@ -108,7 +108,7 @@
                                 <tr>
                                     <td style="text-align:center;"><?php echo $no; ?></td>
                                     <td><?php echo $id; ?></td>
-                                    <td> <img class="img-circle" width="50" src="<?php echo base_url() . 'assets/upload/' . $gbr; ?>">
+                                    <td> <img class="avatar" width="50" src="<?php echo base_url() . 'assets/upload/' . $gbr; ?>">
                                     </td>
                                     <td><?php echo $nm; ?></td>
                                     <td style="text-align:center;"><?php echo $satuan; ?></td>
@@ -150,9 +150,8 @@
 
                     <div class="form-group">
                         <label class="control-label col-xs-3">Gambar Barang</label>
-                        <div class="custom-file">
-                            <input type="file" name="filefoto" class="custom-file-input" id="customFileLang" lang="en" required>
-                            <label class="custom-file-label" for="customFileLang">Pilih Gambar</label>
+                        <div class="form-group">
+                            <input type="file" name="filefoto" class="dropify" data-height="220" required>
                         </div>
                     </div>
 
@@ -274,9 +273,8 @@ foreach ($data->result_array() as $a) {
 
                         <div class="form-group">
                             <label class="control-label col-xs-3">Gambar Barang</label>
-                            <div class="custom-file">
-                                <input type="file" name="filefoto" class="custom-file-input" id="customFileLang" lang="en">
-                                <label class="custom-file-label" for="customFileLang">Pilih Gambar</label>
+                            <div class="form-group">
+                                <input type="file" name="filefoto" class="dropify" data-height="220" data-default-file="<?php echo base_url() . 'assets/upload/images/barang/' . $gbr; ?>">
                             </div>
                         </div>
 
@@ -418,15 +416,76 @@ foreach ($data->result_array() as $a) {
 <!-- Optional JS -->
 <script src="<?php echo base_url() ?>assets/dashboard/assets/vendor/chart.js/dist/Chart.min.js"></script>
 <script src="<?php echo base_url() ?>assets/dashboard/assets/vendor/chart.js/dist/Chart.extension.js"></script>
+<script src="<?php echo base_url() ?>assets/dashboard/assets/vendor/dropify/dropify.min.js"></script>
+<script src="<?php echo base_url() ?>assets/dashboard/assets/vendor/summernote-master/summernote-lite.min.js"></script>
+
+
 
 <!-- Argon JS -->
 <script src="<?php echo base_url() ?>assets/dashboard/assets/js/dashboard.js?v=1.2.0"></script>
 <!-- Datatables JS -->
 <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.22/b-1.6.5/datatables.min.js"></script>
-
 <script type="text/javascript">
     $(document).ready(function() {
         $('#mydata').DataTable();
+        $('.dropify').dropify({
+            defaultFile: '',
+            messages: {
+                default: 'Drag atau drop untuk memilih Photo',
+                replace: 'Ganti',
+                remove: 'Hapus',
+                error: 'error'
+            }
+        });
+        $('#summernote').summernote({
+            height: 200,
+            focus: true,
+            toolbar: [
+                ['style', ['style']],
+                ['font', ['bold', 'italic', 'underline', 'clear']],
+                ['fontsize', ['fontsize']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['insert', ['link', 'picture', 'hr']],
+                ['view', ["fullscreen", "codeview", "help"]],
+            ],
+            onImageUpload: function(files, editor, welEditable) {
+                sendFile(files[0], editor, welEditable);
+            }
+        });
+        $('#summernote2').summernote({
+            height: 200,
+            focus: true,
+            toolbar: [
+                ['style', ['style']],
+                ['font', ['bold', 'italic', 'underline', 'clear']],
+                ['fontsize', ['fontsize']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['insert', ['link', 'picture', 'hr']],
+                ['view', ["fullscreen", "codeview", "help"]],
+            ],
+            onImageUpload: function(files, editor, welEditable) {
+                sendFile(files[0], editor, welEditable);
+            }
+        });
+
+        function sendFile(file, editor, welEditable) {
+            data = new FormData();
+            data.append("file", file);
+            $.ajax({
+                data: data,
+                type: "POST",
+                url: "<?php echo site_url() ?>assets/upload/staff",
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function(url) {
+                    editor.insertImage(welEditable, url);
+                }
+            });
+        }
+
     });
 </script>
 </body>
