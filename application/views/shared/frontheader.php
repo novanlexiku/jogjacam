@@ -107,115 +107,40 @@
                 <div class="collapse navbar-collapse" id="sidenav-collapse-main">
                     <!-- Nav items -->
                     <ul class="navbar-nav">
+
                         <li class="nav-item">
-                            <a class="nav-link" href="dashboard">
-                                <i class="ni ni-shop text-primary"></i>
-                                <span class="nav-link-text">Dashboards</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#navbar-transaksi" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-transaksi">
+                            <a class="nav-link" href="#navbar-kategori" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-transaksi">
                                 <i class="ni ni-ungroup text-orange"></i>
-                                <span class="nav-link-text">Transaksi</span>
+                                <span class="nav-link-text">Kategori</span>
                             </a>
-                            <div class="collapse" id="navbar-transaksi">
+                            <div class="collapse" id="navbar-kategori">
                                 <ul class="nav nav-sm flex-column">
                                     <li class="nav-item">
-                                        <a href="penjualan" class="nav-link">
-                                            <span class="sidenav-mini-icon"> J </span>
-                                            <span class="sidenav-normal"> Penjualan </span>
+                                        <a href="aksesoris" class="nav-link">
+                                            <span class="sidenav-mini-icon"> A </span>
+                                            <span class="sidenav-normal"> Aksesoris </span>
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="pembelian" class="nav-link">
-                                            <span class="sidenav-mini-icon"> B </span>
-                                            <span class="sidenav-normal"> Pembelian </span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#navbar-konfirmasi" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-konfirmasi">
-                                <i class="ni ni-bag-17 text-info"></i>
-                                <span class="nav-link-text">Konfirmasi</span>
-                            </a>
-                            <div class="collapse" id="navbar-konfirmasi">
-                                <ul class="nav nav-sm flex-column">
-                                    <li class="nav-item">
-                                        <a href="konfirmasipembayaran" class="nav-link">
-                                            <span class="sidenav-mini-icon"> P </span>
-                                            <span class="sidenav-normal"> Pembayaran </span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="konfirmasipengiriman" class="nav-link">
-                                            <span class="sidenav-mini-icon"> P </span>
-                                            <span class="sidenav-normal"> Pengiriman </span>
+                                        <a href="kamera" class="nav-link">
+                                            <span class="sidenav-mini-icon"> K </span>
+                                            <span class="sidenav-normal"> Kamera </span>
                                         </a>
                                     </li>
                                 </ul>
                             </div>
                         </li>
 
-                        <hr class="my-3">
-                        <h6 class="navbar-heading pl-4 text-muted">
-                            <span class="docs-normal">Master Data</span>
-                        </h6>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#navbar-barang" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-barang">
-                                <i class="ni ni-spaceship"></i>
-                                <span class="nav-link-text">Barang</span>
-                            </a>
-                            <div class="collapse" id="navbar-barang">
-                                <ul class="nav nav-sm flex-column">
-                                    <li class="nav-item">
-                                        <a href="kategori" class="nav-link">
-                                            <span class="sidenav-mini-icon"> K </span>
-                                            <span class="sidenav-normal"> Kategori </span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="barang" class="nav-link">
-                                            <span class="sidenav-mini-icon"> B </span>
-                                            <span class="sidenav-normal"> Barang </span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#navbar-pengguna" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-pengguna">
-                                <i class="ni ni-circle-08"></i>
-                                <span class="nav-link-text">Pengguna</span>
-                            </a>
-                            <div class="collapse" id="navbar-pengguna">
-                                <ul class="nav nav-sm flex-column">
-                                    <li class="nav-item">
-                                        <a href="pengguna" class="nav-link">
-                                            <span class="sidenav-mini-icon"> U </span>
-                                            <span class="sidenav-normal"> Pengguna </span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="daftarstaff" class="nav-link">
-                                            <span class="sidenav-mini-icon"> S </span>
-                                            <span class="sidenav-normal"> Staff </span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="daftartutorial">
-                                <i class="ni ni-air-baloon"></i>
+                                <i class="ni ni-air-baloon text-info"></i>
                                 <span class="nav-link-text">Tutorial</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="laporan">
-                                <i class="ni ni-chart-pie-35"></i>
-                                <span class="nav-link-text">Laporan</span>
+                            <a class="nav-link" href="staff">
+                                <i class="ni ni-chart-pie-35 text-success"></i>
+                                <span class="nav-link-text">Staff</span>
                             </a>
                         </li>
                     </ul>
@@ -249,36 +174,28 @@
                         </li>
                     </ul>
                     <ul class="navbar-nav align-items-center  ml-auto ml-md-0 ">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Aksesoris </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Kamera </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Tutorial</a>
+                        </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <div class="media align-items-center">
-                                    <span class="avatar avatar-sm rounded-circle">
-                                        <img alt="Image placeholder" src="<?php echo base_url() ?>assets/dashboard/assets/img/theme/team-4.jpg">
-                                    </span>
-                                    <div class="media-body  ml-2  d-none d-lg-block">
-                                        <span class="mb-0 text-sm  font-weight-bold"><?php echo $this->session->userdata('user_nama'); ?></span>
-                                    </div>
-                                </div>
+                            <a class="nav-link nav-link-icon" href="#" id="navbar-success_dropdown_1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="ni ni-cart"></i>
+                                <span class="nav-link-inner--text d-lg-none">Settings</span>
                             </a>
-                            <div class="dropdown-menu  dropdown-menu-right ">
-                                <div class="dropdown-header noti-title">
-                                    <h6 class="text-overflow m-0">Welcome!</h6>
-                                </div>
-                                <a href="#!" class="dropdown-item">
-                                    <i class="ni ni-single-02"></i>
-                                    <span>My profile</span>
-                                </a>
-                                <a href="#!" class="dropdown-item">
-                                    <i class="ni ni-settings-gear-65"></i>
-                                    <span>Settings</span>
-                                </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbar-success_dropdown_1">
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
                                 <div class="dropdown-divider"></div>
-                                <a href="logout" class="dropdown-item">
-                                    <i class="ni ni-user-run"></i>
-                                    <span>Logout</span>
-                                </a>
+                                <a class="dropdown-item" href="#">Something else here</a>
                             </div>
                         </li>
+
                     </ul>
                 </div>
             </div>
