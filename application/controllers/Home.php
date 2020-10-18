@@ -35,7 +35,7 @@ class Home extends CI_Controller
     public function index()
     {
         $title = array(
-            'title' => 'Home'
+            'title' => 'jogjaCam Pusatnya Aksesoris Kamera'
         );
 
         $this->load->view('shared/frontheader', $title);

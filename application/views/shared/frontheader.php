@@ -16,14 +16,14 @@
 
 -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <!-- Primary Meta Tags -->
+    <title><?php echo $title; ?></title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
-    <meta name="author" content="Creative Tim">
-    <title><?php echo $title; ?></title>
+    <meta name="title" content="Impact - About Page">
 
     <!-- Canonical SEO -->
     <link rel="canonical" href="https://www.creative-tim.com/product/impact-design-system" />
@@ -58,146 +58,87 @@
     <meta property="og:site_name" content="Creative Tim" />
 
     <!-- Favicon -->
-    <link rel="icon" href="<?php echo base_url() ?>assets/dashboard/assets/img/brand/favicon.png" type="image/png">
-    <!-- Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
-    <!-- Icons -->
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/dashboard/assets/vendor/nucleo/css/nucleo.css" type="text/css">
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/dashboard/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
-    <!-- Page plugins -->
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/dashboard/assets/vendor/fullcalendar/dist/fullcalendar.min.css">
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/dashboard/assets/vendor/sweetalert2/dist/sweetalert2.min.css">
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/dashboard/assets/vendor/summernote-master/summernote-lite.min.css">
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/dashboard/assets/vendor/dropify/dropify.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.22/b-1.6.5/datatables.min.css" />
+    <link rel="icon" href="<?php echo base_url() ?>assets/front/assets/img/favicon/favicon.png" type="image/png">
 
-    <!-- Argon CSS -->
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/dashboard/css/dashboard.css" type="text/css">
+    <!-- Fontawesome -->
+    <link type="text/css" href="<?php echo base_url() ?>assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+
+    <!-- Nucleo icons -->
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/dashboard/assets/vendor/nucleo/css/nucleo.css" type="text/css">
+
+    <!-- Prism -->
+    <link type="text/css" href="<?php echo base_url() ?>assets/vendor/prismjs/themes/prism.css" rel="stylesheet">
+
+    <!-- Front CSS -->
+    <link type="text/css" href="<?php echo base_url() ?>assets/front/css/front.css" rel="stylesheet">
 
 
 </head>
 
-
 <body>
-    <!-- Google Tag Manager (noscript)
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NKDMSK6"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-    <!-- Sidenav -->
-    <nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white" id="sidenav-main">
-        <div class="scrollbar-inner">
-            <!-- Brand -->
-            <div class="sidenav-header  d-flex  align-items-center">
-                <a class="navbar-brand" href="dashboard">
-                    <img src="<?php echo base_url() ?>assets/dashboard/assets/img/brand/dark.svg" height="40" class="navbar-brand-img" alt="...">
+
+
+
+    <header class="header-global">
+        <nav id="navbar-main" class="navbar navbar-main navbar-expand-lg headroom py-lg-3 px-lg-6 navbar-dark navbar-theme-primary">
+            <div class="container">
+                <a class="navbar-brand @@logo_classes" href="<?php echo base_url() ?>assets/index.html">
+                    <img class="navbar-brand-dark common" src="<?php echo base_url() ?>assets/front/assets/img/brand/light.svg" alt="Logo light">
+                    <img class="navbar-brand-light common" src="<?php echo base_url() ?>assets/front/assets/img/brand/dark.svg" alt="Logo dark">
                 </a>
-                <div class=" ml-auto ">
-                    <!-- Sidenav toggler -->
-                    <div class="sidenav-toggler d-none d-xl-block" data-action="sidenav-unpin" data-target="#sidenav-main">
-                        <div class="sidenav-toggler-inner">
-                            <i class="sidenav-toggler-line"></i>
-                            <i class="sidenav-toggler-line"></i>
-                            <i class="sidenav-toggler-line"></i>
+                <div class="navbar-collapse collapse" id="navbar_global">
+                    <div class="navbar-collapse-header">
+                        <div class="row">
+                            <div class="col-6 collapse-brand">
+                                <a href="<?php echo base_url() ?>assets/index.html">
+                                    <img src="<?php echo base_url() ?>assets/front/assets/img/brand/dark.svg" alt="Logo Impact">
+                                </a>
+                            </div>
+                            <div class="col-6 collapse-close">
+                                <a href="#navbar_global" role="button" class="fas fa-times" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation"></a>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="navbar-inner">
-                <!-- Collapse -->
-                <div class="collapse navbar-collapse" id="sidenav-collapse-main">
-                    <!-- Nav items -->
-                    <ul class="navbar-nav">
-
+                    <ul class="navbar-nav navbar-nav-hover justify-content-center">
                         <li class="nav-item">
-                            <a class="nav-link" href="#navbar-kategori" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-transaksi">
-                                <i class="ni ni-ungroup text-orange"></i>
-                                <span class="nav-link-text">Kategori</span>
-                            </a>
-                            <div class="collapse" id="navbar-kategori">
-                                <ul class="nav nav-sm flex-column">
-                                    <li class="nav-item">
-                                        <a href="aksesoris" class="nav-link">
-                                            <span class="sidenav-mini-icon"> A </span>
-                                            <span class="sidenav-normal"> Aksesoris </span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="kamera" class="nav-link">
-                                            <span class="sidenav-mini-icon"> K </span>
-                                            <span class="sidenav-normal"> Kamera </span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="daftartutorial">
-                                <i class="ni ni-air-baloon text-info"></i>
-                                <span class="nav-link-text">Tutorial</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="staff">
-                                <i class="ni ni-chart-pie-35 text-success"></i>
-                                <span class="nav-link-text">Staff</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </nav>
-    <!-- Main content -->
-    <div class="main-content" id="panel">
-        <!-- Topnav -->
-        <nav class="navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom">
-            <div class="container-fluid">
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-                    <!-- Navbar links -->
-                    <ul class="navbar-nav align-items-center  ml-md-auto ">
-                        <li class="nav-item d-xl-none">
-                            <!-- Sidenav toggler -->
-                            <div class="pr-3 sidenav-toggler sidenav-toggler-dark" data-action="sidenav-pin" data-target="#sidenav-main">
-                                <div class="sidenav-toggler-inner">
-                                    <i class="sidenav-toggler-line"></i>
-                                    <i class="sidenav-toggler-line"></i>
-                                    <i class="sidenav-toggler-line"></i>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="nav-item d-sm-none">
-                            <a class="nav-link" href="#" data-action="search-show" data-target="#navbar-search-main">
-                                <i class="ni ni-zoom-split-in"></i>
-                            </a>
-                        </li>
-                    </ul>
-                    <ul class="navbar-nav align-items-center  ml-auto ml-md-0 ">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Aksesoris </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Kamera </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Tutorial</a>
+                            <a href="<?php echo base_url() ?>assets/index.html" class="nav-link">Overview</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link nav-link-icon" href="#" id="navbar-success_dropdown_1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="ni ni-cart"></i>
-                                <span class="nav-link-inner--text d-lg-none">Settings</span>
+                            <a href="#" class="nav-link" data-toggle="dropdown" aria-controls="pages_submenu" aria-expanded="false" aria-label="Toggle pages menu item">
+                                <span class="nav-link-inner-text">Front pages</span>
+                                <span class="fas fa-angle-down nav-link-arrow ml-2"></span>
                             </a>
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbar-success_dropdown_1">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
+                            <ul class="dropdown-menu" id="pages_submenu">
+                                <li><a class="dropdown-item" href="<?php echo base_url() ?>assets/front/pages/index.html">Landing</a></li>
+                                <li><a class="dropdown-item" href="<?php echo base_url() ?>assets/front/pages/about.html">About</a></li>
+                                <li><a class="dropdown-item" href="<?php echo base_url() ?>assets/front/pages/pricing.html">Pricing</a></li>
+                                <li><a class="dropdown-item" href="<?php echo base_url() ?>assets/front/pages/contact.html">Contact</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link" data-toggle="dropdown" aria-controls="pages_submenu" aria-expanded="false" aria-label="Toggle pages menu item">
+                                <span class="nav-link-inner-text">App pages</span>
+                                <span class="fas fa-angle-down nav-link-arrow ml-2"></span>
+                            </a>
+                            <ul class="dropdown-menu" id="pages_submenu">
+                                <li><a class="dropdown-item" href="<?php echo base_url() ?>assets/dashboard/pages/dashboards/dashboard.html">Dashboard</a></li>
+                                <li><a class="dropdown-item" href="<?php echo base_url() ?>assets/dashboard/pages/examples/login.html">Login</a></li>
+                                <li><a class="dropdown-item" href="<?php echo base_url() ?>assets/dashboard/pages/examples/register.html">Register</a></li>
+                                <li><a class="dropdown-item" href="<?php echo base_url() ?>assets/dashboard/pages/examples/profile.html">Profile</a></li>
+                                <li><a class="dropdown-item" href="<?php echo base_url() ?>assets/dashboard/pages/tables/tables.html">Tables</a></li>
+                                <li><a class="dropdown-item" href="<?php echo base_url() ?>assets/dashboard/pages/maps/google.html">Maps</a></li>
+                            </ul>
                         </li>
 
                     </ul>
+                </div>
+                <div class="d-none d-lg-block @@cta_button_classes">
+                    <a href="https://demos.creative-tim.com/impact-design-system-pro/docs/dashboard/alerts/" class="btn btn-md btn-docs btn-outline-white animate-up-2 mr-3"><i class="fas fa-th-large mr-2"></i> Components</a>
+                    <a href="https://www.creative-tim.com/product/impact-design-system-pro" target="_blank" class="btn btn-md btn-secondary animate-up-2"><i class="fas fa-paper-plane mr-2"></i> Upgrade to Pro</a>
+                </div>
+                <div class="d-flex d-lg-none align-items-center">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 </div>
             </div>
         </nav>
-        <!-- Header -->
+    </header>
