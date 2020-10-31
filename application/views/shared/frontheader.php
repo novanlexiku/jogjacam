@@ -83,15 +83,15 @@
         <nav id="navbar-main" class="navbar navbar-main navbar-expand-lg headroom py-lg-3 px-lg-6 navbar-dark navbar-theme-primary">
             <div class="container">
                 <a class="navbar-brand @@logo_classes" href="<?php echo base_url() ?>assets/index.html">
-                    <img class="navbar-brand-dark common" src="<?php echo base_url() ?>assets/front/assets/img/brand/light.svg" alt="Logo light">
-                    <img class="navbar-brand-light common" src="<?php echo base_url() ?>assets/front/assets/img/brand/dark.svg" alt="Logo dark">
+                    <img class="navbar-brand-dark common" src="<?php echo base_url() ?>assets/front/assets/img/brand/light.svg">
+                    <img class="navbar-brand-light common" src="<?php echo base_url() ?>assets/front/assets/img/brand/dark.svg">
                 </a>
                 <div class="navbar-collapse collapse" id="navbar_global">
                     <div class="navbar-collapse-header">
                         <div class="row">
                             <div class="col-6 collapse-brand">
                                 <a href="<?php echo base_url() ?>assets/index.html">
-                                    <img src="<?php echo base_url() ?>assets/front/assets/img/brand/dark.svg" alt="Logo Impact">
+                                    <img src="<?php echo base_url() ?>assets/front/assets/img/brand/dark.svg">
                                 </a>
                             </div>
                             <div class="col-6 collapse-close">
@@ -101,40 +101,29 @@
                     </div>
                     <ul class="navbar-nav navbar-nav-hover justify-content-center">
                         <li class="nav-item">
-                            <a href="<?php echo base_url() ?>assets/index.html" class="nav-link">Overview</a>
+                            <a href="<?php echo base_url() ?>" class="nav-link">Overview</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a href="#" class="nav-link" data-toggle="dropdown" aria-controls="pages_submenu" aria-expanded="false" aria-label="Toggle pages menu item">
-                                <span class="nav-link-inner-text">Front pages</span>
+                                <span class="nav-link-inner-text">Produk</span>
                                 <span class="fas fa-angle-down nav-link-arrow ml-2"></span>
                             </a>
                             <ul class="dropdown-menu" id="pages_submenu">
-                                <li><a class="dropdown-item" href="<?php echo base_url() ?>assets/front/pages/index.html">Landing</a></li>
-                                <li><a class="dropdown-item" href="<?php echo base_url() ?>assets/front/pages/about.html">About</a></li>
-                                <li><a class="dropdown-item" href="<?php echo base_url() ?>assets/front/pages/pricing.html">Pricing</a></li>
-                                <li><a class="dropdown-item" href="<?php echo base_url() ?>assets/front/pages/contact.html">Contact</a></li>
+                                <li><a class="dropdown-item" href="<?php echo base_url() ?>assets/front/pages/index.html">Aksesoris</a></li>
+                                <li><a class="dropdown-item" href="<?php echo base_url() ?>assets/front/pages/about.html">Kamera</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a href="#" class="nav-link" data-toggle="dropdown" aria-controls="pages_submenu" aria-expanded="false" aria-label="Toggle pages menu item">
-                                <span class="nav-link-inner-text">App pages</span>
-                                <span class="fas fa-angle-down nav-link-arrow ml-2"></span>
+
+                        <li class="nav-item">
+                            <a href="#tutorial" class="nav-link">
+                                <span class="nav-link-inner-text">Tutorial</span>
                             </a>
-                            <ul class="dropdown-menu" id="pages_submenu">
-                                <li><a class="dropdown-item" href="<?php echo base_url() ?>assets/dashboard/pages/dashboards/dashboard.html">Dashboard</a></li>
-                                <li><a class="dropdown-item" href="<?php echo base_url() ?>assets/dashboard/pages/examples/login.html">Login</a></li>
-                                <li><a class="dropdown-item" href="<?php echo base_url() ?>assets/dashboard/pages/examples/register.html">Register</a></li>
-                                <li><a class="dropdown-item" href="<?php echo base_url() ?>assets/dashboard/pages/examples/profile.html">Profile</a></li>
-                                <li><a class="dropdown-item" href="<?php echo base_url() ?>assets/dashboard/pages/tables/tables.html">Tables</a></li>
-                                <li><a class="dropdown-item" href="<?php echo base_url() ?>assets/dashboard/pages/maps/google.html">Maps</a></li>
-                            </ul>
                         </li>
 
                     </ul>
                 </div>
                 <div class="d-none d-lg-block @@cta_button_classes">
-                    <a href="https://demos.creative-tim.com/impact-design-system-pro/docs/dashboard/alerts/" class="btn btn-md btn-docs btn-outline-white animate-up-2 mr-3"><i class="fas fa-th-large mr-2"></i> Components</a>
-                    <a href="https://www.creative-tim.com/product/impact-design-system-pro" target="_blank" class="btn btn-md btn-secondary animate-up-2"><i class="fas fa-paper-plane mr-2"></i> Upgrade to Pro</a>
+                    <a href="https://demos.creative-tim.com/impact-design-system-pro/docs/dashboard/alerts/" class="btn btn-md btn-docs btn-outline-white animate-up-2 mr-3"><i class="fas fa-shopping-cart mr-2"></i> Pesanan</a>
                 </div>
                 <div class="d-flex d-lg-none align-items-center">
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>

@@ -3,20 +3,13 @@
     <div class="preloader bg-soft flex-column justify-content-center align-items-center">
         <div class="loader-element">
             <span class="loader-animated-dot"></span>
-            <img src="<?php echo base_url() ?>assets/front/assets/img/brand/dark-loader.svg" height="40" alt="Impact logo">
+            <img src="<?php echo base_url() ?>assets/front/assets/img/brand/dark-loader.svg" height="40">
         </div>
     </div>
 
     <!-- Hero -->
     <section class="section-header pb-8 pb-lg-13 mb-4 mb-lg-6 bg-primary text-white">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-12 col-md-8 text-center">
-                    <h1 class="display-2 mb-3">Who is Impact for?</h1>
-                    <p class="lead">Whether you’re a programmer, designer, freelancer or need Impact for a whole team our pricing just makes sense.</p>
-                </div>
-            </div>
-        </div>
+
         <div class="pattern bottom"></div>
     </section>
     <section class="section section-lg pt-0">
@@ -130,7 +123,7 @@
             </div>
         </div>
     </section>
-    <section class="section section-lg pt-0 line-bottom-light">
+    <section class="section section-lg pt-0 line-bottom-light" id="tutorial">
         <div class="container">
             <div class="row justify-content-center mb-5 mb-lg-6">
                 <div class="col-12 col-md-8 text-center">
@@ -331,104 +324,7 @@
         </div>
     </section>
 
-    <section class="section section-lg pb-5 bg-soft">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 text-center mb-5">
-                    <h2 class="mb-4">Faster growth starts with Impact</h2>
-                    <p class="lead mb-5">Join over <span class="font-weight-bolder">300,000+</span> users</p>
-                    <a href="#" class="icon icon-lg text-gray mr-3">
-                        <i class="fab fa-mailchimp"></i>
-                    </a>
-                    <a href="#" class="icon icon-lg text-gray mr-3">
-                        <i class="fab fa-cpanel"></i>
-                    </a>
-                    <a href="#" class="icon icon-lg text-gray mr-3">
-                        <i class="fab fa-dhl"></i>
-                    </a>
-                    <a href="#" class="icon icon-lg text-gray mr-3 ">
-                        <i class="fab fa-github-alt"></i>
-                    </a>
-                    <a href="#" class="icon icon-lg text-gray mr-3">
-                        <i class="fab fa-aws"></i>
-                    </a>
-                    <a href="#" class="icon icon-lg text-gray">
-                        <i class="fab fa-node"></i>
-                    </a>
-                </div>
-                <div class="col-12 text-center">
-                    <!-- Button Modal -->
-                    <a href="<?php echo base_url() ?>assets/dashboard/pages/dashboards/dashboard.html" class="btn btn-secondary animate-up-2"><span class="mr-2"><i class="fas fa-hand-pointer"></i></span>Start 30-days trial</a>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <footer class="footer section pt-6 pt-md-8 pt-lg-10 pb-3 bg-primary text-white overflow-hidden">
-        <div class="pattern pattern-soft top"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 mb-4 mb-lg-0">
-                    <a class="footer-brand mr-lg-5 d-flex" href="<?php echo base_url() ?>assets/index.html">
-                        <img src="<?php echo base_url() ?>assets/front/assets/img/brand/light.svg" height="35" class="mr-3" alt="Footer logo">
-                    </a>
-                    <p class="my-4">Create, prototype, collaborate and turn your ideas into incredible products with the definitive platform for digital design.</p>
-                    <div class="dropdown mb-4 mb-lg-0">
-                        <a id="langsDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle footer-language-link">
-                            <img src="<?php echo base_url() ?>assets/front/assets/img/flags/united-states-of-america.svg" alt="USA Flag" class="language-flag"> English
-                            <i class="fas fa-chevron-down ml-1"></i>
-                        </a>
-                        <div aria-labelledby="langsDropdown" class="dropdown-menu dropdown-menu-center">
-                            <a href="#" class="dropdown-item text-gray text-sm"><img src="<?php echo base_url() ?>assets/front/assets/img/flags/germany.svg" alt="Germany Flag" class="language-flag"> German</a>
-                            <a href="#" class="dropdown-item text-gray text-sm"><img src="<?php echo base_url() ?>assets/front/assets/img/flags/spain.svg" alt="Spain Flag" class="language-flag"> Spanish</a>
-                            <a href="#" class="dropdown-item text-gray text-sm"><img src="<?php echo base_url() ?>assets/front/assets/img/flags/france.svg" alt="France Flag" class="language-flag"> French</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6 col-sm-3 col-lg-2 mb-4 mb-lg-0">
-                    <h6>Themesberg</h6>
-                    <ul class="links-vertical">
-                        <li><a target="_blank" href="https://themesberg.com/blog?ref=creativetim">Blog</a></li>
-                        <li><a target="_blank" href="https://themesberg.com/themes?ref=creativetim">Themes</a></li>
-                        <li><a target="_blank" href="https://themesberg.com/contact?ref=creativetim">Contact Us</a></li>
-                    </ul>
-                </div>
-                <div class="col-6 col-sm-3 col-lg-2 mb-4 mb-lg-0">
-                    <h6>Creative Tim</h6>
-                    <ul class="links-vertical">
-                        <li><a target="_blank" href="https://www.creative-tim.com/blog">Blog</a></li>
-                        <li><a target="_blank" href="https://www.creative-tim.com/templates">Products</a></li>
-                        <li><a target="_blank" href="https://www.creative-tim.com/support-terms">Support</a></li>
-                        <li><a target="_blank" href="https://www.creative-tim.com/license">License</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <h6>Subscribe</h6>
-                    <p class="font-small">The latest Impact news, articles, and resources, sent straight to your inbox every month.</p>
-                    <form action="#">
-                        <div class="form-row">
-                            <div class="col-8">
-                                <input type="email" class="form-control mb-2" placeholder="Email Address" name="email" required>
-                            </div>
-                            <div class="col-4">
-                                <button type="submit" class="btn btn-secondary btn-block"><span>Subscribe</span></button>
-                            </div>
-                        </div>
-                    </form>
-                    <small class="mt-2 form-text">We’ll never share your details. See our <a href="#" class="font-weight-bold text-underline">Privacy Policy</a></small>
-                </div>
-            </div>
-            <hr class="my-4 my-lg-5">
-            <div class="row">
-                <div class="col pb-4 mb-md-0">
-                    <div class="d-flex text-center justify-content-center align-items-center">
-                        <p class="font-weight-normal mb-0">© <a href="https://themesberg.com?ref=creativetim*" target="_blank">Themesberg</a> & <a href="https://creative-tim.com">Creative Tim</a> <span class="current-year"></span>. All rights reserved.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
 
 </main>
 
