@@ -37,6 +37,7 @@ class Barang extends CI_Controller
 		if ($this->session->userdata('user_level') == '1' || $this->session->userdata('user_level') == '2') {
 			$kobar = $this->m_barang->get_kobar();
 			$nabar = $this->input->post('nabar');
+			$desc = htmlspecialchars($this->input->post('deskripsi', TRUE), ENT_QUOTES);
 			$kat = $this->input->post('kategori');
 			$satuan = $this->input->post('satuan');
 			$harpok = str_replace(',', '', $this->input->post('harpok'));
@@ -67,7 +68,7 @@ class Barang extends CI_Controller
 					$this->image_lib->resize();
 
 					$gambar = $gbr['file_name'];
-					$this->m_barang->simpan_barang($kobar, $gambar, $nabar, $kat, $satuan, $harpok, $harjul, $harjul_grosir, $stok, $min_stok);
+					$this->m_barang->simpan_barang($kobar, $gambar, $nabar, $desc, $kat, $satuan, $harpok, $harjul, $harjul_grosir, $stok, $min_stok);
 					echo $this->session->set_flashdata('msg', 'tambahbrg');
 					redirect('barang');
 				} else {
@@ -84,6 +85,7 @@ class Barang extends CI_Controller
 		if ($this->session->userdata('user_level') == '1' || $this->session->userdata('user_level') == '2') {
 			$kobar = $this->input->post('kobar');
 			$nabar = $this->input->post('nabar');
+			$desc = htmlspecialchars($this->input->post('deskripsi', TRUE), ENT_QUOTES);
 			$kat = $this->input->post('kategori');
 			$satuan = $this->input->post('satuan');
 			$harpok = str_replace(',', '', $this->input->post('harpok'));
@@ -113,7 +115,7 @@ class Barang extends CI_Controller
 					$this->image_lib->resize();
 
 					$gambar = $gbr['file_name'];
-					$this->m_barang->update_barang($kobar, $gambar, $nabar, $kat, $satuan, $harpok, $harjul, $harjul_grosir, $stok, $min_stok);
+					$this->m_barang->update_barang($kobar, $gambar, $nabar, $desc, $kat, $satuan, $harpok, $harjul, $harjul_grosir, $stok, $min_stok);
 					echo $this->session->set_flashdata('msg', 'editbrg');
 					redirect('barang');
 				} else {
@@ -121,7 +123,7 @@ class Barang extends CI_Controller
 					redirect('barang');
 				}
 			} else {
-				$this->m_barang->update_barang_noimg($kobar, $nabar, $kat, $satuan, $harpok, $harjul, $harjul_grosir, $stok, $min_stok);
+				$this->m_barang->update_barang_noimg($kobar, $nabar, $desc, $kat, $satuan, $harpok, $harjul, $harjul_grosir, $stok, $min_stok);
 				echo $this->session->set_flashdata('msg', 'editbrg');
 				redirect('barang');
 			}

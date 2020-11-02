@@ -89,7 +89,7 @@
             <!-- Brand -->
             <div class="sidenav-header  d-flex  align-items-center">
                 <a class="navbar-brand" href="dashboard">
-                    <img src="<?php echo base_url() ?>assets/dashboard/assets/img/brand/dark.svg" height="40" class="navbar-brand-img" alt="...">
+                    <img src="<?php echo base_url() ?>assets/dashboard/assets/img/brand/dark.svg" height="40" class="navbar-brand-img">
                 </a>
                 <div class=" ml-auto ">
                     <!-- Sidenav toggler -->
@@ -170,15 +170,21 @@
                             <div class="collapse" id="navbar-barang">
                                 <ul class="nav nav-sm flex-column">
                                     <li class="nav-item">
-                                        <a href="kategori" class="nav-link">
-                                            <span class="sidenav-mini-icon"> K </span>
-                                            <span class="sidenav-normal"> Kategori </span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
                                         <a href="barang" class="nav-link">
                                             <span class="sidenav-mini-icon"> B </span>
                                             <span class="sidenav-normal"> Barang </span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="promo" class="nav-link">
+                                            <span class="sidenav-mini-icon"> P </span>
+                                            <span class="sidenav-normal"> Promo </span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="kategori" class="nav-link">
+                                            <span class="sidenav-mini-icon"> K </span>
+                                            <span class="sidenav-normal"> Kategori </span>
                                         </a>
                                     </li>
                                 </ul>

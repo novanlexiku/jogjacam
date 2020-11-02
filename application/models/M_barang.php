@@ -8,29 +8,29 @@ class M_barang extends CI_Model
 		return $hsl;
 	}
 
-	function update_barang($kobar, $gambar, $nabar, $kat, $satuan, $harpok, $harjul, $harjul_grosir, $stok, $min_stok)
+	function update_barang($kobar, $gambar, $nabar, $desc, $kat, $satuan, $harpok, $harjul, $harjul_grosir, $stok, $min_stok)
 	{
 		$user_id = $this->session->userdata('user_id');
-		$hsl = $this->db->query("UPDATE tbl_barang SET barang_nama='$nabar', barang_gambar='$gambar',barang_satuan='$satuan',barang_harpok='$harpok',barang_harjul='$harjul',barang_harjul_grosir='$harjul_grosir',barang_stok='$stok',barang_min_stok='$min_stok',barang_tgl_last_update=NOW(),barang_kategori_id='$kat',barang_user_id='$user_id' WHERE barang_id='$kobar'");
+		$hsl = $this->db->query("UPDATE tbl_barang SET barang_nama='$nabar', barang_deskripsi='$desc', barang_gambar='$gambar',barang_satuan='$satuan',barang_harpok='$harpok',barang_harjul='$harjul',barang_harjul_grosir='$harjul_grosir',barang_stok='$stok',barang_min_stok='$min_stok',barang_tgl_last_update=NOW(),barang_kategori_id='$kat',barang_user_id='$user_id' WHERE barang_id='$kobar'");
 		return $hsl;
 	}
-	function update_barang_noimg($kobar, $nabar, $kat, $satuan, $harpok, $harjul, $harjul_grosir, $stok, $min_stok)
+	function update_barang_noimg($kobar, $nabar, $desc, $kat, $satuan, $harpok, $harjul, $harjul_grosir, $stok, $min_stok)
 	{
 		$user_id = $this->session->userdata('user_id');
-		$hsl = $this->db->query("UPDATE tbl_barang SET barang_nama='$nabar',barang_satuan='$satuan',barang_harpok='$harpok',barang_harjul='$harjul',barang_harjul_grosir='$harjul_grosir',barang_stok='$stok',barang_min_stok='$min_stok',barang_tgl_last_update=NOW(),barang_kategori_id='$kat',barang_user_id='$user_id' WHERE barang_id='$kobar'");
+		$hsl = $this->db->query("UPDATE tbl_barang SET barang_nama='$nabar', barang_deskripsi='$desc', barang_satuan='$satuan', barang_harpok='$harpok', barang_harjul='$harjul', barang_harjul_grosir='$harjul_grosir', barang_stok='$stok', barang_min_stok='$min_stok', barang_tgl_last_update=NOW(), barang_kategori_id='$kat', barang_user_id='$user_id' WHERE barang_id='$kobar'");
 		return $hsl;
 	}
 
 	function tampil_barang()
 	{
-		$hsl = $this->db->query("SELECT barang_id,barang_gambar,barang_nama,barang_satuan,barang_harpok,barang_harjul,barang_harjul_grosir,barang_stok,barang_min_stok,barang_kategori_id,kategori_nama FROM tbl_barang JOIN tbl_kategori ON barang_kategori_id=kategori_id");
+		$hsl = $this->db->query("SELECT barang_id,barang_gambar,barang_nama,barang_deskripsi,barang_satuan,barang_harpok,barang_harjul,barang_harjul_grosir,barang_stok,barang_min_stok,barang_promo, barang_kategori_id,kategori_nama FROM tbl_barang JOIN tbl_kategori ON barang_kategori_id=kategori_id");
 		return $hsl;
 	}
 
-	function simpan_barang($kobar, $gambar, $nabar, $kat, $satuan, $harpok, $harjul, $harjul_grosir, $stok, $min_stok)
+	function simpan_barang($kobar, $gambar, $nabar, $desc, $kat, $satuan, $harpok, $harjul, $harjul_grosir, $stok, $min_stok)
 	{
 		$user_id = $this->session->userdata('user_id');
-		$hsl = $this->db->query("INSERT INTO tbl_barang (barang_id,barang_gambar,barang_nama,barang_satuan,barang_harpok,barang_harjul,barang_harjul_grosir,barang_stok,barang_min_stok,barang_kategori_id,barang_user_id) VALUES ('$kobar','$gambar','$nabar','$satuan','$harpok','$harjul','$harjul_grosir','$stok','$min_stok','$kat','$user_id')");
+		$hsl = $this->db->query("INSERT INTO tbl_barang (barang_id,barang_gambar,barang_nama,barang_deskripsi,barang_satuan,barang_harpok,barang_harjul,barang_harjul_grosir,barang_stok,barang_min_stok,barang_kategori_id,barang_user_id) VALUES ('$kobar','$gambar','$nabar','$desc','$satuan','$harpok','$harjul','$harjul_grosir','$stok','$min_stok','$kat','$user_id')");
 		return $hsl;
 	}
 
@@ -53,5 +53,16 @@ class M_barang extends CI_Model
 			$kd = "000001";
 		}
 		return "BR" . $kd;
+	}
+
+	function update_status($kode)
+	{
+		$hsl = $this->db->query("UPDATE tbl_barang SET barang_promo='0' WHERE barang_id='$kode'");
+		return $hsl;
+	}
+	function update_status2($kode)
+	{
+		$hsl = $this->db->query("UPDATE tbl_barang SET barang_promo='1' WHERE barang_id='$kode'");
+		return $hsl;
 	}
 }

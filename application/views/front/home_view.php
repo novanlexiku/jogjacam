@@ -127,8 +127,8 @@
         <div class="container">
             <div class="row justify-content-center mb-5 mb-lg-6">
                 <div class="col-12 col-md-8 text-center">
-                    <h1 class="display-3 mb-4">Get started in 30 seconds</h1>
-                    <p class="lead">Even if you have the most loyal customers ever, they’ll still want to know how things are going and for new users how to start.</p>
+                    <h1 class="display-3 mb-4">Cukup dengan 30 detik untuk melakukan pemesanan</h1>
+                    <p class="lead">ikuti langkah-langkah di bawah ini.</p>
                 </div>
             </div>
             <div class="row">
@@ -154,8 +154,8 @@
                         <div class="col-lg py-2">
                             <div class="card timeline-card bg-soft shadow-soft border-light p-3">
                                 <div class="card-body p-4">
-                                    <h4 class="mb-3"><span class="d-lg-none">1.</span> Create an account</h4>
-                                    <p class="my-2">Once you're approved, you can then explore our platform functionalities and make your first test payment.</p>
+                                    <h4 class="mb-3"><span class="d-lg-none">1.</span> Pilih jenis barang </h4>
+                                    <p class="my-2">Pilihlah barang yang akan di pesan terlebih dahulu, jangan lupa di cek ketersediaan barangnya.</p>
                                 </div>
                             </div>
                         </div>
@@ -166,8 +166,8 @@
                         <div class="col-lg py-2">
                             <div class="card left-timeline-card bg-soft shadow-soft border-light p-3">
                                 <div class="card-body p-4">
-                                    <h4 class="mb-3"><span class="d-lg-none">2.</span> Get Advice</h4>
-                                    <p class="my-2">To start processing payments you’ll need to speak to our team for tailored advice and get an assessment of your business.</p>
+                                    <h4 class="mb-3"><span class="d-lg-none">2.</span> Ketik alamat lengkap pengiriman </h4>
+                                    <p class="my-2">Ketikkan alamat lengkap pengiriman, cek data untuk menghindari kesalahan dalam pengiriman.</p>
                                 </div>
                             </div>
                         </div>
@@ -208,8 +208,8 @@
                         <div class="col-lg py-2">
                             <div class="card timeline-card bg-soft shadow-soft border-light p-3">
                                 <div class="card-body p-4">
-                                    <h4 class="mb-3"><span class="d-lg-none">3.</span> Apply</h4>
-                                    <p class="my-2">You can now send your request to start processing payments with us. We’ll review the information, just to make sure we can help your business in the best way.</p>
+                                    <h4 class="mb-3"><span class="d-lg-none">3.</span> Pilih jenis pembayaran</h4>
+                                    <p class="my-2">Kamu dapat memilih beberapa metode pembayaran, pilihlah sesuai keinginanmu.</p>
                                 </div>
                             </div>
                         </div>
@@ -220,9 +220,9 @@
                         <div class="col-lg py-2">
                             <div class="card left-timeline-card bg-soft shadow-soft border-light p-3">
                                 <div class="card-body p-4">
-                                    <h4 class="mb-3"><span class="d-lg-none">4.</span> Use</h4>
-                                    <p class="my-2">Find out more about Redbooth’s APIs and discover the infinite opportunities of this Platform.</p>
-                                    <p>We recommend you to start using the interactive console of the Developer Portal and getting familiar with the different endpoints of the API with the documentation. Here’s an interesting read to start consuming the API using curl: 9 uses for cURL worth knowing.</p>
+                                    <h4 class="mb-3"><span class="d-lg-none">4.</span> Konfirmasi pembayaran</h4>
+                                    <p class="my-2">Lakukan konfirmasi pembayaran pada kontak yang telah disediakan.</p>
+                                    <p>Upload bukti pembayaran pada halaman konfirmasi.</p>
                                 </div>
                             </div>
                         </div>

@@ -57,6 +57,7 @@ $route['kategori'] = 'admin/kategori';
 $route['barang'] = 'admin/barang';
 $route['daftartutorial'] = 'admin/tutorial';
 $route['daftarstaff'] = 'admin/staff';
+$route['promo'] = 'admin/hotdeals';
 
 $route['default_controller'] = 'Home';
 $route['404_override'] = '';

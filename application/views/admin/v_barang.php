@@ -8,7 +8,7 @@
                         <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                             <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
                             <li class="breadcrumb-item"><a href="#">Dashboards</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Default</li>
+                            <li class="breadcrumb-item active" aria-current="page">Barang</li>
                         </ol>
                     </nav>
                 </div>
@@ -163,6 +163,13 @@
                     </div>
 
                     <div class="form-group">
+                        <label class="control-label col-xs-3">Deskripsi Barang</label>
+                        <div class="col-xs-9">
+                            <textarea name="deskripsi" id="summernote" required></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
                         <label class="control-label col-xs-3">Kategori</label>
                         <div class="col-xs-9">
                             <select name="kategori" class="select show-tick form-control" data-live-search="true" title="Pilih Kategori" data-width="80%" placeholder="Pilih Kategori" required>
@@ -176,8 +183,6 @@
                             </select>
                         </div>
                     </div>
-
-
 
                     <div class="form-group">
                         <label class="control-label col-xs-3">Satuan</label>
@@ -244,6 +249,7 @@ foreach ($data->result_array() as $a) {
     $id = $a['barang_id'];
     $gbr = $a['barang_gambar'];
     $nm = $a['barang_nama'];
+    $desc = $a['barang_deskripsi'];
     $satuan = $a['barang_satuan'];
     $harpok = $a['barang_harpok'];
     $harjul = $a['barang_harjul'];
@@ -282,6 +288,13 @@ foreach ($data->result_array() as $a) {
                             <label class="control-label col-xs-3">Nama Barang</label>
                             <div class="col-xs-9">
                                 <input name="nabar" class="form-control" type="text" value="<?php echo $nm; ?>" placeholder="Nama Barang..." required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-xs-3">Deskripsi Barang</label>
+                            <div class="col-xs-9">
+                                <textarea name="deskripsi" id="summernote2"><?php echo $desc; ?></textarea>
                             </div>
                         </div>
 
@@ -372,6 +385,7 @@ foreach ($data->result_array() as $a) {
 foreach ($data->result_array() as $a) {
     $id = $a['barang_id'];
     $nm = $a['barang_nama'];
+    $desc = $a['barang_deskripsi'];
     $harpok = $a['barang_harpok'];
     $harjul = $a['barang_harjul'];
     $stok = $a['barang_stok'];
@@ -469,6 +483,7 @@ foreach ($data->result_array() as $a) {
                 sendFile(files[0], editor, welEditable);
             }
         });
+
 
         function sendFile(file, editor, welEditable) {
             data = new FormData();
