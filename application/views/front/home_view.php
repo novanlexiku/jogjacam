@@ -14,112 +14,55 @@
     </section>
     <section class="section section-lg pt-0">
         <div class="container mt-n7 mt-lg-n13 z-2">
-            <div class="row justify-content-center">
-                <div class="col-12 col-lg-4">
-                    <div class="card shadow-soft bg-white border-light animate-up-3 text-gray py-4 mb-5 mb-lg-0">
-                        <div class="card-header text-center pb-0">
-                            <div class="icon icon-shape icon-shape-primary rounded-circle mb-3">
-                                <i class="fas fa-bullhorn"></i>
+            <div class="justify-content-center">
+                <div class="row">
+                    <?php
+                    foreach ($data->result_array() as $a) :
+                        $id = $a['barang_id'];
+                        $gbr = $a['barang_gambar'];
+                        $nm = $a['barang_nama'];
+                        $desc = html_entity_decode($a['barang_deskripsi']);
+                        $satuan = $a['barang_satuan'];
+                        $harpok = $a['barang_harpok'];
+                        $harjul = $a['barang_harjul'];
+                        $harjul_grosir = $a['barang_harjul_grosir'];
+                        $stok = $a['barang_stok'];
+                        $min_stok = $a['barang_min_stok'];
+                        $kat_id = $a['barang_kategori_id'];
+                        $kat_nama = $a['kategori_nama'];
+                    ?>
+                        <div class="col-4">
+                            <div class="profile-card mt-6">
+                                <div class="card shadow-soft border-light text-center" style="height: 300px;">
+                                    <div class="profile-image">
+                                        <img src="<?php echo base_url() . 'assets/upload/images/barang/' . $gbr; ?>" class="card-img-top " alt="image">
+                                    </div>
+                                    <div class="card-body mt-n5">
+                                        <h5 class="card-title"><?php echo $nm; ?></h5>
+                                        <h6 class="card-subtitle"><?php echo 'Rp ' . number_format($harjul); ?></h6>
+
+                                    </div>
+                                    <ul class="social-buttons py-3">
+                                        <li>
+                                            <a href="" target="_blank" class="btn btn-block btn-outline-info animate-up-2">
+                                                Detail <span class="icon icon-xs ml-3"></i></span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="" target="_blank" class="btn btn-block btn-outline-gray animate-up-2">
+                                                Pesan <span class="icon icon-xs ml-3"></i></span>
+                                            </a>
+                                        </li>
+
+                                    </ul>
+
+                                </div>
                             </div>
-                            <h4 class="text-black">Marketing</h4>
-                            <p>
-                                Reveal best strategies from the market and your competitors
-                            </p>
                         </div>
-                        <div class="card-body">
-                            <ul class="list-group">
-                                <li class="list-group-item d-flex px-0 pt-0 pb-2">
-                                    <div class="icon icon-sm icon-success mr-4">
-                                        <i class="far fa-check-circle"></i>
-                                    </div>
-                                    <div>Uncover the best SEO and content strategies</div>
-                                </li>
-                                <li class="list-group-item d-flex px-0 pb-1">
-                                    <div class="icon icon-sm icon-success mr-4">
-                                        <i class="far fa-check-circle"></i>
-                                    </div>
-                                    <div>Build & grow your affiliate and media partnerships </div>
-                                </li>
-                                <li class="list-group-item d-flex px-0 pb-1">
-                                    <div class="icon icon-sm icon-success mr-4">
-                                        <i class="far fa-check-circle"></i>
-                                    </div>
-                                    <div>Enhance your display and paid search strategies</div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+                    <?php endforeach; ?>
+
                 </div>
-                <div class="col-12 col-lg-4">
-                    <div class="card shadow-soft bg-white border-light animate-up-3 text-gray py-4 mb-5 mb-lg-0">
-                        <div class="card-header text-center pb-0">
-                            <div class="icon icon-shape icon-shape-primary rounded-circle mb-3">
-                                <i class="far fa-lightbulb"></i>
-                            </div>
-                            <h4 class="text-black">Research</h4>
-                            <p>
-                                Understand your market, your competitors and your customers
-                            </p>
-                        </div>
-                        <div class="card-body">
-                            <ul class="list-group">
-                                <li class="list-group-item d-flex px-0 pt-0 pb-2">
-                                    <div class="icon icon-sm icon-success mr-4">
-                                        <i class="far fa-check-circle"></i>
-                                    </div>
-                                    <div>Benchmark your market and find ways to grow your share</div>
-                                </li>
-                                <li class="list-group-item d-flex px-0 pb-1">
-                                    <div class="icon icon-sm icon-success mr-4">
-                                        <i class="far fa-check-circle"></i>
-                                    </div>
-                                    <div>Analyze trends, competitors' strategy and audience behavior</div>
-                                </li>
-                                <li class="list-group-item d-flex px-0 pb-1">
-                                    <div class="icon icon-sm icon-success mr-4">
-                                        <i class="far fa-check-circle"></i>
-                                    </div>
-                                    <div>Understand the shopper’s journey for smarter decisions</div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-lg-4">
-                    <div class="card shadow-soft bg-white border-light animate-up-3 text-gray py-4 mb-5 mb-lg-0">
-                        <div class="card-header text-center pb-0">
-                            <div class="icon icon-shape icon-shape-primary rounded-circle mb-3">
-                                <i class="fas fa-receipt"></i>
-                            </div>
-                            <h4 class="text-black">Sales</h4>
-                            <p>
-                                Enhance performance throughout your sales funnel
-                            </p>
-                        </div>
-                        <div class="card-body">
-                            <ul class="list-group">
-                                <li class="list-group-item d-flex px-0 pt-0 pb-2">
-                                    <div class="icon icon-sm icon-success mr-4">
-                                        <i class="far fa-check-circle"></i>
-                                    </div>
-                                    <div>Find, enrich and qualify leads to increase sales opportunities</div>
-                                </li>
-                                <li class="list-group-item d-flex px-0 pb-1">
-                                    <div class="icon icon-sm icon-success mr-4">
-                                        <i class="far fa-check-circle"></i>
-                                    </div>
-                                    <div>Generate the insights you need to perfect your pitch</div>
-                                </li>
-                                <li class="list-group-item d-flex px-0 pb-1">
-                                    <div class="icon icon-sm icon-success mr-4">
-                                        <i class="far fa-check-circle"></i>
-                                    </div>
-                                    <div>Monitor website traffic statistics to boost retention</div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+
             </div>
         </div>
     </section>

@@ -27,6 +27,8 @@ class M_barang extends CI_Model
 		return $hsl;
 	}
 
+
+
 	function simpan_barang($kobar, $gambar, $nabar, $desc, $kat, $satuan, $harpok, $harjul, $harjul_grosir, $stok, $min_stok)
 	{
 		$user_id = $this->session->userdata('user_id');
@@ -63,6 +65,18 @@ class M_barang extends CI_Model
 	function update_status2($kode)
 	{
 		$hsl = $this->db->query("UPDATE tbl_barang SET barang_promo='1' WHERE barang_id='$kode'");
+		return $hsl;
+	}
+
+	function tampil_promobe()
+	{
+		$hsl = $this->db->query("SELECT barang_id,barang_gambar,barang_nama,barang_deskripsi,barang_satuan,barang_harpok,barang_harjul,barang_harjul_grosir,barang_stok,barang_min_stok,barang_promo, barang_kategori_id,kategori_nama FROM tbl_barang JOIN tbl_kategori ON barang_kategori_id=kategori_id ORDER BY barang_promo desc");
+		return $hsl;
+	}
+
+	function tampil_promo()
+	{
+		$hsl = $this->db->query("SELECT barang_id,barang_gambar,barang_nama,barang_deskripsi,barang_satuan,barang_harpok,barang_harjul,barang_harjul_grosir,barang_stok,barang_min_stok,barang_promo, barang_kategori_id,kategori_nama FROM tbl_barang JOIN tbl_kategori ON barang_kategori_id=kategori_id WHERE barang_promo=1");
 		return $hsl;
 	}
 }

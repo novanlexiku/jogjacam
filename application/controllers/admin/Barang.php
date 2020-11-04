@@ -37,7 +37,7 @@ class Barang extends CI_Controller
 		if ($this->session->userdata('user_level') == '1' || $this->session->userdata('user_level') == '2') {
 			$kobar = $this->m_barang->get_kobar();
 			$nabar = $this->input->post('nabar');
-			$desc = htmlspecialchars($this->input->post('deskripsi', TRUE), ENT_QUOTES);
+			$desc = htmlspecialchars($this->input->post('deskripsi'), ENT_QUOTES);
 			$kat = $this->input->post('kategori');
 			$satuan = $this->input->post('satuan');
 			$harpok = str_replace(',', '', $this->input->post('harpok'));
@@ -85,7 +85,7 @@ class Barang extends CI_Controller
 		if ($this->session->userdata('user_level') == '1' || $this->session->userdata('user_level') == '2') {
 			$kobar = $this->input->post('kobar');
 			$nabar = $this->input->post('nabar');
-			$desc = htmlspecialchars($this->input->post('deskripsi', TRUE), ENT_QUOTES);
+			$desc = htmlspecialchars($this->input->post('deskripsi'), ENT_QUOTES);
 			$kat = $this->input->post('kategori');
 			$satuan = $this->input->post('satuan');
 			$harpok = str_replace(',', '', $this->input->post('harpok'));

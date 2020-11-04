@@ -134,7 +134,7 @@
                     <div class="form-group">
                         <label class="control-label col-xs-3">Deskripsi Tutorial</label>
                         <div class="col-xs-9">
-                            <textarea name="deskripsi" id="summernote" required></textarea>
+                            <textarea name="deskripsi" class="summernote" required></textarea>
                         </div>
                     </div>
                     <div class="form-group">
@@ -185,7 +185,7 @@ foreach ($data->result_array() as $a) {
                         <div class="form-group">
                             <label class="control-label col-xs-3">Deskripsi Tutorial</label>
                             <div class="col-xs-9">
-                                <textarea name="deskripsi" id="summernote2" required><?php echo $desc; ?></textarea>
+                                <textarea name="deskripsi" class="summernote" required><?php echo $desc; ?></textarea>
                             </div>
                         </div>
                         <div class="form-group">
@@ -261,7 +261,7 @@ foreach ($data->result_array() as $a) {
 <script type="text/javascript">
     $(document).ready(function() {
         $('#mydata').DataTable();
-        $('#summernote').summernote({
+        $('.summernote').summernote({
             height: 200,
             focus: true,
             toolbar: [
@@ -277,22 +277,7 @@ foreach ($data->result_array() as $a) {
                 sendFile(files[0], editor, welEditable);
             }
         });
-        $('#summernote2').summernote({
-            height: 200,
-            focus: true,
-            toolbar: [
-                ['style', ['style']],
-                ['font', ['bold', 'italic', 'underline', 'clear']],
-                ['fontsize', ['fontsize']],
-                ['color', ['color']],
-                ['para', ['ul', 'ol', 'paragraph']],
-                ['insert', ['link', 'picture', 'hr']],
-                ['view', ["fullscreen", "codeview", "help"]],
-            ],
-            onImageUpload: function(files, editor, welEditable) {
-                sendFile(files[0], editor, welEditable);
-            }
-        });
+
 
         function sendFile(file, editor, welEditable) {
             data = new FormData();

@@ -19,7 +19,7 @@ class Hotdeals extends CI_Controller
         if ($this->session->userdata('user_level') == '1' || $this->session->userdata('user_level') == '2') {
 
             $data = array(
-                'data' =>    $this->m_barang->tampil_barang(),
+                'data' =>    $this->m_barang->tampil_promobe(),
                 'kat' =>    $this->m_kategori->tampil_kategori(),
                 'kat2' =>    $this->m_kategori->tampil_kategori()
             );

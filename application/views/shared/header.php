@@ -67,7 +67,7 @@
     <!-- Page plugins -->
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/dashboard/assets/vendor/fullcalendar/dist/fullcalendar.min.css">
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/dashboard/assets/vendor/sweetalert2/dist/sweetalert2.min.css">
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/dashboard/assets/vendor/summernote-master/summernote-lite.min.css">
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/dashboard/assets/vendor/summernote-master/summernote.min.css">
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/dashboard/assets/vendor/dropify/dropify.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.22/b-1.6.5/datatables.min.css" />
 

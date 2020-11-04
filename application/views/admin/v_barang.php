@@ -165,7 +165,7 @@
                     <div class="form-group">
                         <label class="control-label col-xs-3">Deskripsi Barang</label>
                         <div class="col-xs-9">
-                            <textarea name="deskripsi" id="summernote" required></textarea>
+                            <textarea name="deskripsi" class="summernote" required></textarea>
                         </div>
                     </div>
 
@@ -294,7 +294,7 @@ foreach ($data->result_array() as $a) {
                         <div class="form-group">
                             <label class="control-label col-xs-3">Deskripsi Barang</label>
                             <div class="col-xs-9">
-                                <textarea name="deskripsi" id="summernote2"><?php echo $desc; ?></textarea>
+                                <textarea name="deskripsi" class="summernote"><?php echo $desc; ?></textarea>
                             </div>
                         </div>
 
@@ -431,7 +431,7 @@ foreach ($data->result_array() as $a) {
 <script src="<?php echo base_url() ?>assets/dashboard/assets/vendor/chart.js/dist/Chart.min.js"></script>
 <script src="<?php echo base_url() ?>assets/dashboard/assets/vendor/chart.js/dist/Chart.extension.js"></script>
 <script src="<?php echo base_url() ?>assets/dashboard/assets/vendor/dropify/dropify.min.js"></script>
-<script src="<?php echo base_url() ?>assets/dashboard/assets/vendor/summernote-master/summernote-lite.min.js"></script>
+<script src="<?php echo base_url() ?>assets/dashboard/assets/vendor/summernote-master/summernote.min.js"></script>
 
 
 
@@ -451,7 +451,7 @@ foreach ($data->result_array() as $a) {
                 error: 'error'
             }
         });
-        $('#summernote').summernote({
+        $('.summernote').summernote({
             height: 200,
             focus: true,
             toolbar: [
@@ -467,22 +467,7 @@ foreach ($data->result_array() as $a) {
                 sendFile(files[0], editor, welEditable);
             }
         });
-        $('#summernote2').summernote({
-            height: 200,
-            focus: true,
-            toolbar: [
-                ['style', ['style']],
-                ['font', ['bold', 'italic', 'underline', 'clear']],
-                ['fontsize', ['fontsize']],
-                ['color', ['color']],
-                ['para', ['ul', 'ol', 'paragraph']],
-                ['insert', ['link', 'picture', 'hr']],
-                ['view', ["fullscreen", "codeview", "help"]],
-            ],
-            onImageUpload: function(files, editor, welEditable) {
-                sendFile(files[0], editor, welEditable);
-            }
-        });
+
 
 
         function sendFile(file, editor, welEditable) {
