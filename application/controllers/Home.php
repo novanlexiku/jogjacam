@@ -36,12 +36,23 @@ class Home extends CI_Controller
             'title' => 'jogjaCam Pusatnya Aksesoris Kamera'
         );
         $data = array(
-            'data' =>	$this->m_barang->tampil_promo()
+            'data' =>    $this->m_barang->tampil_promo()
         );
 
         $this->load->view('shared/frontheader', $title);
-        $this->load->view('front/home_view',$data);
+        $this->load->view('front/home_view', $data);
     }
 
+    function aksesoris()
+    {
+        $title = array(
+            'title' => 'jogjaCam Pusatnya Aksesoris Kamera'
+        );
+        $data = array(
+            'data' =>    $this->m_barang->tampil_aksesoris()
+        );
 
+        $this->load->view('shared/frontheader', $title);
+        $this->load->view('front/aksesoris_view', $data);
+    }
 }

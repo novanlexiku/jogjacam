@@ -82,7 +82,7 @@
     <header class="header-global">
         <nav id="navbar-main" class="navbar navbar-main navbar-expand-lg headroom py-lg-3 px-lg-6 navbar-dark navbar-theme-primary">
             <div class="container">
-                <a class="navbar-brand @@logo_classes" href="<?php echo base_url() ?>assets/index.html">
+                <a class="navbar-brand @@logo_classes" href="<?php echo base_url() ?>">
                     <img class="navbar-brand-dark common" src="<?php echo base_url() ?>assets/front/assets/img/brand/light.svg">
                     <img class="navbar-brand-light common" src="<?php echo base_url() ?>assets/front/assets/img/brand/dark.svg">
                 </a>
@@ -90,7 +90,7 @@
                     <div class="navbar-collapse-header">
                         <div class="row">
                             <div class="col-6 collapse-brand">
-                                <a href="<?php echo base_url() ?>assets/index.html">
+                                <a href="<?php echo base_url() ?>">
                                     <img src="<?php echo base_url() ?>assets/front/assets/img/brand/dark.svg">
                                 </a>
                             </div>
@@ -109,7 +109,7 @@
                                 <span class="fas fa-angle-down nav-link-arrow ml-2"></span>
                             </a>
                             <ul class="dropdown-menu" id="pages_submenu">
-                                <li><a class="dropdown-item" href="<?php echo base_url() ?>assets/front/pages/index.html">Aksesoris</a></li>
+                                <li><a class="dropdown-item" href="aksesoris">Aksesoris</a></li>
                                 <li><a class="dropdown-item" href="<?php echo base_url() ?>assets/front/pages/about.html">Kamera</a></li>
                             </ul>
                         </li>

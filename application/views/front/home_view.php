@@ -8,7 +8,7 @@
     </div>
 
     <!-- Hero -->
-    <section class="section-header pb-8 pb-lg-13 mb-4 mb-lg-6 bg-primary text-white">
+    <section class="section-header pb-6 pb-lg-13 mb-2 mb-lg-3 bg-primary text-white">
 
         <div class="pattern bottom"></div>
     </section>
@@ -33,28 +33,30 @@
                     ?>
                         <div class="col-4">
                             <div class="profile-card mt-6">
-                                <div class="card shadow-soft border-light text-center" style="height: 300px;">
+                                <div class="card shadow-soft border-light text-center" style="height: 350px; max-height:500px;">
                                     <div class="profile-image">
-                                        <img src="<?php echo base_url() . 'assets/upload/images/barang/' . $gbr; ?>" class="card-img-top " alt="image">
+                                        <img src="<?php echo base_url() . 'assets/upload/images/barang/' . $gbr; ?>" class="card-img-top ">
                                     </div>
                                     <div class="card-body mt-n5">
                                         <h5 class="card-title"><?php echo $nm; ?></h5>
                                         <h6 class="card-subtitle"><?php echo 'Rp ' . number_format($harjul); ?></h6>
-
                                     </div>
-                                    <ul class="social-buttons py-3">
-                                        <li>
-                                            <a href="" target="_blank" class="btn btn-block btn-outline-info animate-up-2">
-                                                Detail <span class="icon icon-xs ml-3"></i></span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="" target="_blank" class="btn btn-block btn-outline-gray animate-up-2">
-                                                Pesan <span class="icon icon-xs ml-3"></i></span>
-                                            </a>
-                                        </li>
+                                    <div class="card-footer px-4 pb-4">
+                                        <ul class="social-buttons">
+                                            <li>
+                                                <a href="" target="_blank" class="btn btn-block btn-outline-info animate-up-2">
+                                                    Detail <span class="icon icon-xs"></i></span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="" target="_blank" class="btn btn-block btn-outline-gray animate-up-2">
+                                                    Pesan <span class="icon icon-xs"></i></span>
+                                                </a>
+                                            </li>
 
-                                    </ul>
+                                        </ul>
+                                    </div>
+
 
                                 </div>
                             </div>

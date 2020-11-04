@@ -59,6 +59,8 @@ $route['daftartutorial'] = 'admin/tutorial';
 $route['daftarstaff'] = 'admin/staff';
 $route['promo'] = 'admin/hotdeals';
 
+$route['aksesoris'] = 'home/aksesoris';
+
 $route['default_controller'] = 'Home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
