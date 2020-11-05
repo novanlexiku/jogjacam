@@ -60,6 +60,7 @@ $route['daftarstaff'] = 'admin/staff';
 $route['promo'] = 'admin/hotdeals';
 
 $route['aksesoris'] = 'home/aksesoris';
+$route['register'] = 'Register';
 
 $route['default_controller'] = 'Home';
 $route['404_override'] = '';

@@ -261,7 +261,7 @@ foreach ($data->result_array() as $a) {
 <script src="<?php echo base_url() ?>assets/dashboard/assets/vendor/chart.js/dist/Chart.min.js"></script>
 <script src="<?php echo base_url() ?>assets/dashboard/assets/vendor/chart.js/dist/Chart.extension.js"></script>
 <script src="<?php echo base_url() ?>assets/dashboard/assets/vendor/dropify/dropify.min.js"></script>
-<script src="<?php echo base_url() ?>assets/dashboard/assets/vendor/summernote-master/summernote-lite.min.js"></script>
+<script src="<?php echo base_url() ?>assets/dashboard/assets/vendor/summernote-master/summernote.min.js"></script>
 
 
 

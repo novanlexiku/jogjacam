@@ -123,7 +123,8 @@
                     </ul>
                 </div>
                 <div class="d-none d-lg-block @@cta_button_classes">
-                    <a href="https://demos.creative-tim.com/impact-design-system-pro/docs/dashboard/alerts/" class="btn btn-md btn-docs btn-outline-white animate-up-2 mr-3"><i class="fas fa-shopping-cart mr-2"></i> Pesanan</a>
+                    <a href="" class="btn btn-md btn-docs btn-outline-white animate-up-2 mr-3"><i class="fas fa-shopping-cart mr-2"></i> Pesanan</a>
+                    <a href="register" class="btn btn-md btn-docs btn-outline-white animate-up-2 mr-3"><i class="fas fa-circle-08 mr-2"></i> Daftar</a>
                 </div>
                 <div class="d-flex d-lg-none align-items-center">
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>

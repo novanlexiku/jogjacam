@@ -122,7 +122,8 @@
                                     <td><?php echo $username; ?></td>
                                     <td><?php echo $password; ?></td>
                                     <td><?php if ($level == '1') echo 'Administrator';
-                                        else if ($level == '2') echo 'Kasir'; ?></td>
+                                        else if ($level == '2') echo 'Kasir';
+                                        else if ($level == '3') echo 'Pelanggan'; ?></td>
                                     <td><?php if ($status == '1') echo 'Aktif';
                                         else if ($status == '0') echo 'Tidak Aktif'; ?></td>
                                     <td style="text-align:center;">
