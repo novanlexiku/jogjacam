@@ -48,12 +48,6 @@
                                                     Detail <span class="icon icon-xs"></i></span>
                                                 </a>
                                             </li>
-                                            <li>
-                                                <a href="" target="_blank" class="btn btn-block btn-outline-gray animate-up-2">
-                                                    Pesan <span class="icon icon-xs"></i></span>
-                                                </a>
-                                            </li>
-
                                         </ul>
                                     </div>
 
@@ -269,6 +263,38 @@
         </div>
     </section>
 
+    <div class="modal fade" id="ModalCart" tabindex="-1" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header align-items-center">
+                    <h6 class="modal-title" id="modal-title-default">Shopping Cart</h6>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Produk</th>
+                                <th>Harga</th>
+                                <th>Qty</th>
+                                <th>Subtotal</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody id="detail_cart">
+
+                        </tbody>
+
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary">I Got It</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 </main>
@@ -290,7 +316,47 @@
 
 <!-- Impact JS -->
 <script src="<?php echo base_url() ?>assets/front/assets/js/front.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.add_cart').click(function() {
+            var barang_id = $(this).data("barangid");
+            var barang_nama = $(this).data("barangnama");
+            var barang_harjul = $(this).data("barangharga");
+            var quantity = $('#' + barang_id).val();
+            $.ajax({
+                url: "<?php echo base_url(); ?>index.php/cart/add_to_cart",
+                method: "POST",
+                data: {
+                    barang_id: barang_id,
+                    barang_nama: barang_nama,
+                    barang_harjul: barang_harjul,
+                    quantity: quantity
+                },
+                success: function(data) {
+                    $('#detail_cart').html(data);
+                }
+            });
+        });
 
+        // Load shopping cart
+        $('#detail_cart').load("<?php echo base_url(); ?>index.php/cart/load_cart");
+
+        //Hapus Item Cart
+        $(document).on('click', '.hapus_cart', function() {
+            var row_id = $(this).attr("id"); //mengambil row_id dari artibut id
+            $.ajax({
+                url: "<?php echo base_url(); ?>cart/hapus_cart",
+                method: "POST",
+                data: {
+                    row_id: row_id
+                },
+                success: function(data) {
+                    $('#detail_cart').html(data);
+                }
+            });
+        });
+    });
+</script>
 
 </body>
 

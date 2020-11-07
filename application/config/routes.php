@@ -61,6 +61,7 @@ $route['promo'] = 'admin/hotdeals';
 
 $route['aksesoris'] = 'home/aksesoris';
 $route['register'] = 'Register';
+$route['login'] = 'login';
 
 $route['default_controller'] = 'Home';
 $route['404_override'] = '';

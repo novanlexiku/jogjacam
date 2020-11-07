@@ -1,11 +1,11 @@
 <main>
 
-    <div class="preloader bg-soft flex-column justify-content-center align-items-center">
+    <!-- <div class="preloader bg-soft flex-column justify-content-center align-items-center">
         <div class="loader-element">
             <span class="loader-animated-dot"></span>
             <img src="<?php echo base_url() ?>assets/front/assets/img/brand/dark-loader.svg" height="40">
         </div>
-    </div>
+    </div> -->
 
     <!-- Hero -->
     <section class="section-header pb-6 pb-lg-13 mb-2 mb-lg-3 bg-primary text-white">
@@ -99,13 +99,18 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-12 mt-4">
+                                    <div class="col-12 mt-2">
                                         <div class="text-center">
                                             <button type="submit" class="btn btn-secondary mt-4 animate-up-2"><span class="mr-2"><i class="fas fa-paper-plane"></i></span>Daftar</button>
                                         </div>
                                     </div>
                                 </div>
                             </form>
+                            <div class="row mt-3">
+                                <div class="col-12 text-center">
+                                    <a href="login" class="text-gray"><small>Sudah punya akun</small></a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
