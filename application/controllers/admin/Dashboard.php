@@ -19,7 +19,7 @@ class Dashboard extends CI_Controller
      * map to /index.php/welcome/<method_name>
      * @see https://codeigniter.com/user_guide/general/urls.html
      */
-    protected $access = array('1', '2');
+    protected $access = array('1', '2', '3');
     function __construct()
     {
         parent::__construct();
@@ -40,7 +40,7 @@ class Dashboard extends CI_Controller
 
     public function index()
     {
-        if ($this->session->userdata('user_level') == '1' || $this->session->userdata('user_level') == '2') {
+        if ($this->session->userdata('user_level') == '1' || $this->session->userdata('user_level') == '2' || $this->session->userdata('user_level') == '3') {
             $title = array(
                 'title' => 'Dashboard'
             );
@@ -48,8 +48,7 @@ class Dashboard extends CI_Controller
             $this->load->view('shared/header', $title);
             $this->load->view('admin/dashboard_view');
         } else {
-            redirect('auth');
+            redirect('login');
         }
-
     }
 }

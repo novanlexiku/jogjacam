@@ -19,7 +19,7 @@ class Home extends CI_Controller
      * map to /index.php/welcome/<method_name>
      * @see https://codeigniter.com/user_guide/general/urls.html
      */
-    protected $access = array('1', '2');
+    protected $access = array('1', '2', '3');
     function __construct()
     {
         parent::__construct();
@@ -54,5 +54,18 @@ class Home extends CI_Controller
 
         $this->load->view('shared/frontheader', $title);
         $this->load->view('front/aksesoris_view', $data);
+    }
+
+    function kamera()
+    {
+        $title = array(
+            'title' => 'jogjaCam Pusatnya Aksesoris Kamera'
+        );
+        $data = array(
+            'data' =>    $this->m_barang->tampil_kamera()
+        );
+
+        $this->load->view('shared/frontheader', $title);
+        $this->load->view('front/kamera_view', $data);
     }
 }

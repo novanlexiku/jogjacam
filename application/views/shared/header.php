@@ -113,117 +113,198 @@
                                 <span class="nav-link-text">Dashboards</span>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#navbar-transaksi" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-transaksi">
-                                <i class="ni ni-ungroup text-orange"></i>
-                                <span class="nav-link-text">Transaksi</span>
-                            </a>
-                            <div class="collapse" id="navbar-transaksi">
-                                <ul class="nav nav-sm flex-column">
-                                    <li class="nav-item">
-                                        <a href="penjualan" class="nav-link">
-                                            <span class="sidenav-mini-icon"> J </span>
-                                            <span class="sidenav-normal"> Penjualan </span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="pembelian" class="nav-link">
-                                            <span class="sidenav-mini-icon"> B </span>
-                                            <span class="sidenav-normal"> Pembelian </span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#navbar-konfirmasi" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-konfirmasi">
-                                <i class="ni ni-bag-17 text-info"></i>
-                                <span class="nav-link-text">Konfirmasi</span>
-                            </a>
-                            <div class="collapse" id="navbar-konfirmasi">
-                                <ul class="nav nav-sm flex-column">
-                                    <li class="nav-item">
-                                        <a href="konfirmasipembayaran" class="nav-link">
-                                            <span class="sidenav-mini-icon"> P </span>
-                                            <span class="sidenav-normal"> Pembayaran </span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="konfirmasipengiriman" class="nav-link">
-                                            <span class="sidenav-mini-icon"> P </span>
-                                            <span class="sidenav-normal"> Pengiriman </span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
+                        <?php if ($this->session->userdata('user_level') == '1') { ?>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#navbar-transaksi" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-transaksi">
+                                    <i class="ni ni-ungroup text-orange"></i>
+                                    <span class="nav-link-text">Transaksi</span>
+                                </a>
+                                <div class="collapse" id="navbar-transaksi">
+                                    <ul class="nav nav-sm flex-column">
+                                        <li class="nav-item">
+                                            <a href="penjualan" class="nav-link">
+                                                <span class="sidenav-mini-icon"> J </span>
+                                                <span class="sidenav-normal"> Penjualan </span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="pembelian" class="nav-link">
+                                                <span class="sidenav-mini-icon"> B </span>
+                                                <span class="sidenav-normal"> Pembelian </span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#navbar-konfirmasi" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-konfirmasi">
+                                    <i class="ni ni-bag-17 text-info"></i>
+                                    <span class="nav-link-text">Konfirmasi</span>
+                                </a>
+                                <div class="collapse" id="navbar-konfirmasi">
+                                    <ul class="nav nav-sm flex-column">
+                                        <li class="nav-item">
+                                            <a href="konfirmasipembayaran" class="nav-link">
+                                                <span class="sidenav-mini-icon"> P </span>
+                                                <span class="sidenav-normal"> Pembayaran </span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="konfirmasipengiriman" class="nav-link">
+                                                <span class="sidenav-mini-icon"> P </span>
+                                                <span class="sidenav-normal"> Pengiriman </span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
 
-                        <hr class="my-3">
-                        <h6 class="navbar-heading pl-4 text-muted">
-                            <span class="docs-normal">Master Data</span>
-                        </h6>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#navbar-barang" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-barang">
-                                <i class="ni ni-spaceship"></i>
-                                <span class="nav-link-text">Barang</span>
-                            </a>
-                            <div class="collapse" id="navbar-barang">
-                                <ul class="nav nav-sm flex-column">
-                                    <li class="nav-item">
-                                        <a href="barang" class="nav-link">
-                                            <span class="sidenav-mini-icon"> B </span>
-                                            <span class="sidenav-normal"> Barang </span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="promo" class="nav-link">
-                                            <span class="sidenav-mini-icon"> P </span>
-                                            <span class="sidenav-normal"> Promo </span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="kategori" class="nav-link">
-                                            <span class="sidenav-mini-icon"> K </span>
-                                            <span class="sidenav-normal"> Kategori </span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#navbar-pengguna" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-pengguna">
-                                <i class="ni ni-circle-08"></i>
-                                <span class="nav-link-text">Pengguna</span>
-                            </a>
-                            <div class="collapse" id="navbar-pengguna">
-                                <ul class="nav nav-sm flex-column">
-                                    <li class="nav-item">
-                                        <a href="pengguna" class="nav-link">
-                                            <span class="sidenav-mini-icon"> U </span>
-                                            <span class="sidenav-normal"> Pengguna </span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="daftarstaff" class="nav-link">
-                                            <span class="sidenav-mini-icon"> S </span>
-                                            <span class="sidenav-normal"> Staff </span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="daftartutorial">
-                                <i class="ni ni-air-baloon"></i>
-                                <span class="nav-link-text">Tutorial</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="laporan">
-                                <i class="ni ni-chart-pie-35"></i>
-                                <span class="nav-link-text">Laporan</span>
-                            </a>
-                        </li>
+                            <hr class="my-3">
+                            <h6 class="navbar-heading pl-4 text-muted">
+                                <span class="docs-normal">Master Data</span>
+                            </h6>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#navbar-barang" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-barang">
+                                    <i class="ni ni-spaceship"></i>
+                                    <span class="nav-link-text">Barang</span>
+                                </a>
+                                <div class="collapse" id="navbar-barang">
+                                    <ul class="nav nav-sm flex-column">
+                                        <li class="nav-item">
+                                            <a href="barang" class="nav-link">
+                                                <span class="sidenav-mini-icon"> B </span>
+                                                <span class="sidenav-normal"> Barang </span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="promo" class="nav-link">
+                                                <span class="sidenav-mini-icon"> P </span>
+                                                <span class="sidenav-normal"> Promo </span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="kategori" class="nav-link">
+                                                <span class="sidenav-mini-icon"> K </span>
+                                                <span class="sidenav-normal"> Kategori </span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#navbar-pengguna" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-pengguna">
+                                    <i class="ni ni-circle-08"></i>
+                                    <span class="nav-link-text">Pengguna</span>
+                                </a>
+                                <div class="collapse" id="navbar-pengguna">
+                                    <ul class="nav nav-sm flex-column">
+                                        <li class="nav-item">
+                                            <a href="pengguna" class="nav-link">
+                                                <span class="sidenav-mini-icon"> U </span>
+                                                <span class="sidenav-normal"> Pengguna </span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="daftarstaff" class="nav-link">
+                                                <span class="sidenav-mini-icon"> S </span>
+                                                <span class="sidenav-normal"> Staff </span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="daftartutorial">
+                                    <i class="ni ni-air-baloon"></i>
+                                    <span class="nav-link-text">Tutorial</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="laporan">
+                                    <i class="ni ni-chart-pie-35"></i>
+                                    <span class="nav-link-text">Laporan</span>
+                                </a>
+                            </li>
+                        <?php } elseif ($this->session->userdata('user_level') == '2') { ?>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#navbar-transaksi" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-transaksi">
+                                    <i class="ni ni-ungroup text-orange"></i>
+                                    <span class="nav-link-text">Transaksi</span>
+                                </a>
+                                <div class="collapse" id="navbar-transaksi">
+                                    <ul class="nav nav-sm flex-column">
+                                        <li class="nav-item">
+                                            <a href="penjualan" class="nav-link">
+                                                <span class="sidenav-mini-icon"> J </span>
+                                                <span class="sidenav-normal"> Penjualan </span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="pembelian" class="nav-link">
+                                                <span class="sidenav-mini-icon"> B </span>
+                                                <span class="sidenav-normal"> Pembelian </span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#navbar-konfirmasi" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-konfirmasi">
+                                    <i class="ni ni-bag-17 text-info"></i>
+                                    <span class="nav-link-text">Konfirmasi</span>
+                                </a>
+                                <div class="collapse" id="navbar-konfirmasi">
+                                    <ul class="nav nav-sm flex-column">
+                                        <li class="nav-item">
+                                            <a href="konfirmasipembayaran" class="nav-link">
+                                                <span class="sidenav-mini-icon"> P </span>
+                                                <span class="sidenav-normal"> Pembayaran </span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="konfirmasipengiriman" class="nav-link">
+                                                <span class="sidenav-mini-icon"> P </span>
+                                                <span class="sidenav-normal"> Pengiriman </span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <hr class="my-3">
+                            <h6 class="navbar-heading pl-4 text-muted">
+                                <span class="docs-normal">Master Data</span>
+                            </h6>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="laporan">
+                                    <i class="ni ni-chart-pie-35"></i>
+                                    <span class="nav-link-text">Laporan</span>
+                                </a>
+                            </li>
+                        <?php } else { ?>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#navbar-transaksi" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-transaksi">
+                                    <i class="ni ni-ungroup text-orange"></i>
+                                    <span class="nav-link-text">Transaksi</span>
+                                </a>
+                                <div class="collapse" id="navbar-transaksi">
+                                    <ul class="nav nav-sm flex-column">
+                                        <li class="nav-item">
+                                            <a href="status_pemesanan" class="nav-link">
+                                                <span class="sidenav-mini-icon"> SP </span>
+                                                <span class="sidenav-normal"> Status Pemesanan </span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="cart" class="nav-link">
+                                                <span class="sidenav-mini-icon"> C </span>
+                                                <span class="sidenav-normal"> Cart </span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        <?php } ?>
                     </ul>
                 </div>
             </div>

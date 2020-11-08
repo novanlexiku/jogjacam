@@ -13,6 +13,7 @@
         <div class="pattern bottom"></div>
     </section>
     <section class="section section-lg pt-0">
+
         <div class="container mt-n7 mt-lg-n13 z-2">
             <div class="justify-content-center">
                 <div class="row">
@@ -31,17 +32,18 @@
                         $kat_id = $a['barang_kategori_id'];
                         $kat_nama = $a['kategori_nama'];
                     ?>
+
                         <div class="col-4">
                             <div class="profile-card mt-6">
-                                <div class="card shadow-soft border-light text-center" style="height: 350px; max-height:500px;">
+                                <div class="card shadow-soft border-light text-center" style="height: 300px; max-height:500px;">
                                     <div class="profile-image">
                                         <img src="<?php echo base_url() . 'assets/upload/images/barang/' . $gbr; ?>" class="card-img-top ">
                                     </div>
                                     <div class="card-body mt-n5">
-                                        <h5 class="card-title"><?php echo $nm; ?></h5>
+                                        <h6 class="card-title"><?php echo $nm; ?></h6>
                                         <h6 class="card-subtitle"><?php echo 'Rp ' . number_format($harjul); ?></h6>
                                     </div>
-                                    <div class="card-footer px-4 pb-4">
+                                    <div class="card-footer px-2 pb-2">
                                         <ul class="social-buttons">
                                             <li>
                                                 <a href="" target="_blank" class="btn btn-block btn-outline-info animate-up-2">
@@ -185,83 +187,7 @@
             </div>
         </div>
     </section>
-    <section class="section">
-        <div class="container">
-            <div class="row justify-content-center mb-5 mb-lg-7">
-                <div class="col-12 text-center">
-                    <h1 class="h1 font-weight-bolder mb-4 px-lg-8">Recommended by leading experts in marketing and SEO</h1>
-                    <p class="lead">Our products are loved by users worldwide</p>
-                </div>
-            </div>
-            <div class="row mb-5">
-                <div class="col-12 col-lg-6">
-                    <div class="customer-testimonial d-flex mb-5">
-                        <img src="<?php echo base_url() ?>assets/front/assets/img/team/profile-picture-1.jpg" class="image image-sm mr-3 rounded-circle shadow" alt="">
-                        <div class="content bg-soft shadow-soft border border-light rounded position-relative p-4">
-                            <div class="d-flex mb-4">
-                                <span class="text-warning mr-2"><i class="star fas fa-star"></i></span>
-                                <span class="text-warning mr-2"><i class="star fas fa-star"></i></span>
-                                <span class="text-warning mr-2"><i class="star fas fa-star"></i></span>
-                                <span class="text-warning mr-2"><i class="star fas fa-star"></i></span>
-                                <span class="text-warning mr-2"><i class="star fas fa-star"></i></span>
-                            </div>
-                            <p class="mt-2">"We use Impact mainly for its site explorer, and it’s immensely improved how we find link targets. We use it both for getting quick analysis of a site, as well as utilizing its extensive index when we want to dive deep."</p>
-                            <h6>- James Curran <small class="ml-0 ml-md-2">Designer Apple</small></h6>
-                        </div>
-                    </div>
-                    <div class="customer-testimonial d-flex mb-5">
-                        <img src="<?php echo base_url() ?>assets/front/assets/img/team/profile-picture-2.jpg" class="image image-sm mr-3 rounded-circle shadow" alt="">
-                        <div class="content bg-soft shadow-soft border border-light rounded position-relative p-4">
-                            <div class="d-flex mb-4">
-                                <span class="text-warning mr-2"><i class="star fas fa-star"></i></span>
-                                <span class="text-warning mr-2"><i class="star fas fa-star"></i></span>
-                                <span class="text-warning mr-2"><i class="star fas fa-star"></i></span>
-                                <span class="text-warning mr-2"><i class="star fas fa-star"></i></span>
-                                <span class="text-warning mr-2"><i class="star fas fa-star"></i></span>
-                            </div>
-                            <p class="mt-2">"We use Impact mainly for its site explorer, and it’s immensely improved how we find link targets. We use it both for getting quick analysis of a site, as well as utilizing its extensive index when we want to dive deep."</p>
-                            <h6>- Richard Thomas <small class="ml-0 ml-md-2">Engineer Google</small></h6>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-lg-6 pt-lg-6">
-                    <div class="customer-testimonial d-flex mb-5">
-                        <img src="<?php echo base_url() ?>assets/front/assets/img/team/profile-picture-4.jpg" class="image image-sm mr-3 rounded-circle shadow" alt="">
-                        <div class="content bg-soft shadow-soft border border-light rounded position-relative p-4">
-                            <div class="d-flex mb-4">
-                                <span class="text-warning mr-2"><i class="star fas fa-star"></i></span>
-                                <span class="text-warning mr-2"><i class="star fas fa-star"></i></span>
-                                <span class="text-warning mr-2"><i class="star fas fa-star"></i></span>
-                                <span class="text-warning mr-2"><i class="star fas fa-star"></i></span>
-                                <span class="text-warning mr-2"><i class="star fas fa-star"></i></span>
-                            </div>
-                            <p class="mt-2">"We use Impact mainly for its site explorer, and it’s immensely improved how we find link targets. We use it both for getting quick analysis of a site, as well as utilizing its extensive index when we want to dive deep."</p>
-                            <h6>- Jose Evans <small class="ml-0 ml-md-2">Engineer Google</small></h6>
-                        </div>
-                    </div>
-                    <div class="customer-testimonial d-flex mb-lg-5">
-                        <img src="<?php echo base_url() ?>assets/front/assets/img/team/profile-picture-6.jpg" class="image image-sm mr-3 rounded-circle shadow" alt="">
-                        <div class="content bg-soft shadow-soft border border-light rounded position-relative p-4">
-                            <div class="d-flex mb-4">
-                                <span class="text-warning mr-2"><i class="star fas fa-star"></i></span>
-                                <span class="text-warning mr-2"><i class="star fas fa-star"></i></span>
-                                <span class="text-warning mr-2"><i class="star fas fa-star"></i></span>
-                                <span class="text-warning mr-2"><i class="star fas fa-star"></i></span>
-                                <span class="text-warning mr-2"><i class="star fas fa-star"></i></span>
-                            </div>
-                            <p class="mt-2">"We use Impact mainly for its site explorer, and it’s immensely improved how we find link targets. We use it both for getting quick analysis of a site, as well as utilizing its extensive index when we want to dive deep."</p>
-                            <h6>- Charles Moody <small class="ml-0 ml-md-2">Manager IBM</small></h6>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col text-center">
-                    <a href="./testimonials.html" class="btn btn-primary"><span class="mr-2"><i class="fas fa-book-open"></i></span> See all stories</a>
-                </div>
-            </div>
-        </div>
-    </section>
+
 
     <div class="modal fade" id="ModalCart" tabindex="-1" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
@@ -290,7 +216,7 @@
                     </table>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary">I Got It</button>
+                    <a href="pemesanan" class="btn btn-secondary">Pesan sekarang</a>
                 </div>
             </div>
         </div>

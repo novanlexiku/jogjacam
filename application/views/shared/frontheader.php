@@ -110,7 +110,7 @@
                             </a>
                             <ul class="dropdown-menu" id="pages_submenu">
                                 <li><a class="dropdown-item" href="aksesoris">Aksesoris</a></li>
-                                <li><a class="dropdown-item" href="<?php echo base_url() ?>assets/front/pages/about.html">Kamera</a></li>
+                                <li><a class="dropdown-item" href="kamera">Kamera</a></li>
                             </ul>
                         </li>
 
@@ -123,9 +123,14 @@
                     </ul>
 
                 </div>
+
                 <div class="d-none d-lg-block @@cta_button_classes">
                     <a href="#!" data-toggle="modal" data-target="#ModalCart" class="btn btn-md btn-docs btn-outline-white animate-up-2 mr-3"><i class="fas fa-shopping-cart mr-2"></i> Pesanan</a>
-                    <a href="login" class="btn btn-md btn-docs btn-outline-white animate-up-2 mr-3"><i class="fas fa-sign-in-alt mr-2"></i> Login/Daftar</a>
+                    <?php if ($this->session->userdata('logged_in') != TRUE) { ?>
+                        <a href="login" class="btn btn-md btn-docs btn-outline-white animate-up-2 mr-3"><i class="fas fa-sign-in-alt mr-2"></i> Login/Daftar</a>
+                    <?php } else { ?>
+                        <a href="logout" class="btn btn-md btn-docs btn-outline-white animate-up-2 mr-3"><i class="fas fa-sign-in-alt mr-2"></i> Logout</a>
+                    <?php } ?>
                 </div>
                 <div class="d-flex d-lg-none align-items-center">
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>

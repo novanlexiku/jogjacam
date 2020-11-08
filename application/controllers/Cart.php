@@ -72,4 +72,44 @@ class Cart extends CI_Controller
         $this->cart->update($data);
         echo $this->show_cart();
     }
+
+    function pemesanan()
+    {
+        if ($this->session->userdata("logged_in")) {
+            $data['data'] = $this->M_cart->get_all_barang();
+            $title = array(
+                'title' => 'jogjaCam Pusatnya Aksesoris Kamera'
+            );
+
+            $this->load->view('shared/frontheader', $title);
+            $this->load->view('front/pemesanan_view', $data);
+        } else {
+            redirect('login');
+        }
+    }
+
+    function proses_pemesanan()
+    {
+        if ($this->session->userdata("logged_in")) {
+            $nama = $this->input->post('nama');
+            $nohp = $this->input->post('nohp');
+            $tujuan = $this->input->post('tujuan');
+            $bank = $this->input->post('pembayaran');
+            $status = 'pending';
+            $total = $this->cart->total();
+            $nofak = $this->m_cart->get_nofak();
+            $this->session->set_userdata('nofak', $nofak);
+            $order_proses = $this->m_cart->proses_pemesanan($nofak, $total, $nama, $nohp, $tujuan, $bank, $status);
+            if ($order_proses) {
+                $this->cart->destroy();
+                $this->session->unset_userdata('tglfak');
+                $this->session->unset_userdata('suplier');
+                echo $this->session->set_flashdata('msg', 'suksespesan');
+            } else {
+                redirect('home');
+            }
+        } else {
+            redirect('login');
+        }
+    }
 }

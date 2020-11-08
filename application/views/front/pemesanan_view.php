@@ -12,7 +12,28 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 col-md-8 text-center">
-                    <h1 class="display-2 mb-3">Login pengguna</h1>
+                    <h1 class="display-2 mb-2">Daftar pesananmu</h1>
+
+                    <div class="card border-light shadow-soft p-2 p-md-4 p-lg-5">
+                        <div class="card-body">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Produk</th>
+                                        <th>Harga</th>
+                                        <th>Qty</th>
+                                        <th>Subtotal</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="detail_cart">
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -28,21 +49,21 @@
                             <div class="mt-1">
                                 <?php
                                 $msg = $this->session->flashdata('msg');
-                                if ($msg == "usernamesalah") {
+                                if ($msg == "suksespesan") {
                                 ?>
-                                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                    <div class="alert alert-success alert-dismissible fade show" role="alert">
                                         <span class="alert-icon"><i class="ni ni-like-2"></i></span>
-                                        <span class="alert-text"><strong>Peringatan!</strong> username atau password yang kamu masukkan salah!</span>
+                                        <span class="alert-text"><strong>Sukses!</strong> kamu telah terdaftar, silahkan login!</span>
                                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
                                 <?php
-                                } elseif ($msg == "passwordsalah") {
+                                } elseif ($msg == "gagalpesan") {
                                 ?>
-                                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
                                         <span class="alert-icon"><i class="ni ni-like-2"></i></span>
-                                        <span class="alert-text"><strong>Peringatan!</strong> username atau password yang kamu masukkan salah!</span>
+                                        <span class="alert-text"><strong>Peringatan!</strong> Data Tidak Valid!</span>
                                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
@@ -51,44 +72,64 @@
                                 };
                                 ?>
                             </div>
-                            <!-- Register Pengguna -->
-                            <form method="post" action="<?php echo base_url() . 'index.php/login' ?>">
+                            <!-- Register Pemesanan -->
+                            <form method="post" action="<?php echo base_url() . 'index.php/cart/proses_pemesanan' ?>">
                                 <div class="row">
-                                    <div class="col-12 col-md-6">
+                                    <div class="col-12 col-md-12">
                                         <div class="form-group">
-                                            <label class="form-label text-dark" for="userName">Username <span class="text-danger">*</span></label>
+                                            <label class="form-label text-dark" for="Nama">Nama <span class="text-danger">*</span></label>
                                             <div class="input-group mb-4">
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text"><i class="fas fa-user-alt"></i></span>
                                                 </div>
-                                                <input name="user_username" id="userName" class="form-control" type="text" placeholder="Username" required>
+                                                <input name="nama" id="nama" class="form-control" type="text" placeholder="Nama" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-12">
+                                        <div class="form-group">
+                                            <label class="form-label text-dark" for="nohp">No.HP <span class="text-danger">*</span></label>
+                                            <div class="input-group mb-4">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="fas fa-mobile"></i></span>
+                                                </div>
+                                                <input name="nohp" id="nohp" class="form-control" type="text" placeholder="No.HP" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-12">
+                                        <div class="form-group">
+                                            <label class="form-label text-dark" for="tujuan">Alamat Tujuan <span class="text-danger">*</span></label>
+                                            <div class="input-group mb-4">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="fas fa-map-marked-alt"></i></span>
+                                                </div>
+                                                <textarea class="form-control" name="tujuan" id="tujuan" rows="3"></textarea>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6">
                                         <div class="form-group">
-                                            <label class="form-label text-dark" for="Password">Password <span class="text-danger">*</span></label>
+                                            <label class="form-label text-dark" for="pembayaran">Jenis Pembayaran<span class="text-danger">*</span></label>
                                             <div class="input-group mb-4">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                                                    <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
                                                 </div>
-                                                <input name="user_password" id="Password" class="form-control" type="password" placeholder="Password" required>
+                                                <select class="custom-select" name="pembayaran" id="pembayaran">
+                                                    <option value="1">BRI-01234567</option>
+                                                    <option value="2">BNI-02345678</option>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
-
                                     <div class="col-12 mt-2">
                                         <div class="text-center">
-                                            <button type="submit" class="btn btn-secondary mt-4 animate-up-2"><span class="mr-2"><i class="fas fa-paper-plane"></i></span>Login</button>
+                                            <button type="submit" class="btn btn-secondary mt-4 animate-up-2"><span class="mr-2"><i class="fas fa-paper-plane"></i></span>Pesan</button>
                                         </div>
                                     </div>
                                 </div>
                             </form>
-                            <div class="row mt-3">
-                                <div class="col-12 text-center">
-                                    <a href="register" class="text-gray"><small>Buat Akun Baru</small></a>
-                                </div>
-                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -96,38 +137,7 @@
         </div>
     </div>
 
-    <div class="modal fade" id="ModalCart" tabindex="-1" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header align-items-center">
-                    <h6 class="modal-title" id="modal-title-default">Shopping Cart</h6>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th>Produk</th>
-                                <th>Harga</th>
-                                <th>Qty</th>
-                                <th>Subtotal</th>
-                                <th>Aksi</th>
-                            </tr>
-                        </thead>
-                        <tbody id="detail_cart">
 
-                        </tbody>
-
-                    </table>
-                </div>
-                <div class="modal-footer">
-                    <a href="pemesanan" class="btn btn-secondary">Pesan sekarang</a>
-                </div>
-            </div>
-        </div>
-    </div>
 
 
 

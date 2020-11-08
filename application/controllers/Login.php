@@ -10,7 +10,11 @@ class Login extends MY_Controller
     public function logged_in_check()
     {
         if ($this->session->userdata("logged_in")) {
-            redirect('dashboard', 'refresh');
+            if ($this->session->userdata('user_level') == '1' || $this->session->userdata('user_level') == '2') {
+                redirect('dashboard');
+            } else {
+                redirect('home');
+            }
         }
     }
 
@@ -38,7 +42,11 @@ class Login extends MY_Controller
                 $this->session->set_userdata("logged_in", true);
                 // redirect to dashboard
                 $this->session->set_flashdata('message', 'sukseslogin');
-                redirect('dashboard', 'refresh');
+                if ($this->session->userdata('user_level') == '1' || $this->session->userdata('user_level') == '2') {
+                    redirect('dashboard');
+                } else {
+                    redirect('home');
+                }
             }
         }
 
