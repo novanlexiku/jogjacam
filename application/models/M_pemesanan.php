@@ -19,4 +19,10 @@ class M_pemesanan extends CI_Model
         $hsl = $this->db->query("UPDATE tbl_invoice set invoice_status='$sts' where invoice_id='$id'");
         return $hsl;
     }
+
+    function update_invoice($id, $gambar)
+    {
+        $hsl = $this->db->query("UPDATE tbl_invoice set invoice_konfirmasi='$gambar' where invoice_id='$id'");
+        return $hsl;
+    }
 }

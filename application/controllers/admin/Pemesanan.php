@@ -9,12 +9,15 @@ class Pemesanan extends CI_Controller
             redirect($url);
         };
         $this->load->model('m_pemesanan');
+        $this->load->library('upload');
+        $this->load->helper('text');
     }
     function index()
     {
-        if ($this->session->userdata('user_level') == '1') {
+        if ($this->session->userdata('user_level') == '1' || $this->session->userdata('user_level') == '2' || $this->session->userdata('user_level') == '3') {
             $data['data'] = $this->m_pemesanan->get_all_invoice();
             $data['detail'] = $this->m_pemesanan->get_detail_invoice();
+
             $title = array(
                 'title' => 'Halaman Pemesanan',
             );
@@ -33,6 +36,45 @@ class Pemesanan extends CI_Controller
             $this->m_pemesanan->update($id, $sts);
             echo $this->session->set_flashdata('msg', 'konfirmasi');
             redirect('pesanan');
+        } else {
+            echo "Halaman tidak ditemukan";
+        }
+    }
+
+    function konfirmasi()
+    {
+        if ($this->session->userdata('user_level') == '1' || $this->session->userdata('user_level') == '2' || $this->session->userdata('user_level') == '3') {
+            $id = $this->input->post('invoice_id');
+
+            //Konfigurasi upload gambar
+            $config['upload_path'] = './assets/upload/images/konfirmasi'; //path folder
+            $config['allowed_types'] = 'gif|jpg|png|jpeg|bmp'; //type yang dapat diakses bisa di sesuaikan
+            $config['encrypt_name'] = TRUE; //nama yang terupload nantinya
+            $this->upload->initialize($config);
+            if (!empty($_FILES['filefoto']['name'])) {
+                if ($this->upload->do_upload('filefoto')) {
+                    $gbr = $this->upload->data();
+                    //Compress Image
+                    $config['image_library'] = 'gd2';
+                    $config['source_image'] = './assets/upload/images/konfirmasi/' . $gbr['file_name'];
+                    $config['create_thumb'] = FALSE;
+                    $config['maintain_ratio'] = TRUE;
+                    $config['quality'] = '90%';
+                    $config['width'] = 500;
+                    $config['height'] = 500;
+                    $config['new_image'] = './assets/upload/images/konfirmasi/' . $gbr['file_name'];
+                    $this->load->library('image_lib', $config);
+                    $this->image_lib->resize();
+
+                    $gambar = $gbr['file_name'];
+                    $this->m_pemesanan->update_invoice($id, $gambar);
+                    echo $this->session->set_flashdata('msg', 'editbrg');
+                    redirect('barang');
+                } else {
+                    echo $this->session->set_flashdata('msg', 'error-img');
+                    redirect('barang');
+                }
+            }
         } else {
             echo "Halaman tidak ditemukan";
         }

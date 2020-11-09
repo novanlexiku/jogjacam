@@ -70,6 +70,8 @@
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/dashboard/assets/vendor/summernote-master/summernote.min.css">
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/dashboard/assets/vendor/dropify/dropify.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.22/b-1.6.5/datatables.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+
 
     <!-- Argon CSS -->
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/dashboard/css/dashboard.css" type="text/css">
@@ -256,9 +258,9 @@
                                 <div class="collapse" id="navbar-konfirmasi">
                                     <ul class="nav nav-sm flex-column">
                                         <li class="nav-item">
-                                            <a href="konfirmasipembayaran" class="nav-link">
+                                            <a href="pesanan" class="nav-link">
                                                 <span class="sidenav-mini-icon"> P </span>
-                                                <span class="sidenav-normal"> Pembayaran </span>
+                                                <span class="sidenav-normal"> Pemesanan </span>
                                             </a>
                                         </li>
                                         <li class="nav-item">
@@ -283,22 +285,22 @@
                             </li>
                         <?php } else { ?>
                             <li class="nav-item">
-                                <a class="nav-link" href="#navbar-transaksi" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-transaksi">
-                                    <i class="ni ni-ungroup text-orange"></i>
-                                    <span class="nav-link-text">Transaksi</span>
+                                <a class="nav-link" href="#navbar-konfirmasi" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-konfirmasi">
+                                    <i class="ni ni-bag-17 text-info"></i>
+                                    <span class="nav-link-text">Konfirmasi</span>
                                 </a>
-                                <div class="collapse" id="navbar-transaksi">
+                                <div class="collapse" id="navbar-konfirmasi">
                                     <ul class="nav nav-sm flex-column">
                                         <li class="nav-item">
-                                            <a href="status_pemesanan" class="nav-link">
-                                                <span class="sidenav-mini-icon"> SP </span>
-                                                <span class="sidenav-normal"> Status Pemesanan </span>
+                                            <a href="pesanan" class="nav-link">
+                                                <span class="sidenav-mini-icon"> P </span>
+                                                <span class="sidenav-normal"> Pemesanan </span>
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="cart" class="nav-link">
-                                                <span class="sidenav-mini-icon"> C </span>
-                                                <span class="sidenav-normal"> Cart </span>
+                                            <a href="konfirmasipengiriman" class="nav-link">
+                                                <span class="sidenav-mini-icon"> P </span>
+                                                <span class="sidenav-normal"> Pengiriman </span>
                                             </a>
                                         </li>
                                     </ul>
