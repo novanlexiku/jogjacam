@@ -53,7 +53,7 @@
                                 ?>
                                     <div class="alert alert-success alert-dismissible fade show" role="alert">
                                         <span class="alert-icon"><i class="ni ni-like-2"></i></span>
-                                        <span class="alert-text"><strong>Sukses!</strong> kamu telah terdaftar, silahkan login!</span>
+                                        <span class="alert-text"><strong>Sukses!</strong> pesananmu sedang diproses!</span>
                                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
@@ -115,9 +115,11 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
                                                 </div>
+
                                                 <select class="custom-select" name="pembayaran" id="pembayaran">
-                                                    <option value="1">BRI-01234567</option>
-                                                    <option value="2">BNI-02345678</option>
+                                                    <?php foreach ($bank->result_array() as $b) : ?>
+                                                        <option value="<?php echo $b['bank_id'] ?>"><?php echo $b['bank_nama'] ?>-<?php echo $b['bank_rek'] ?></option>
+                                                    <?php endforeach; ?>
                                                 </select>
                                             </div>
                                         </div>

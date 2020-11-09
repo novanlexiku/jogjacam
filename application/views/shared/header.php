@@ -122,9 +122,9 @@
                                 <div class="collapse" id="navbar-transaksi">
                                     <ul class="nav nav-sm flex-column">
                                         <li class="nav-item">
-                                            <a href="penjualan" class="nav-link">
-                                                <span class="sidenav-mini-icon"> J </span>
-                                                <span class="sidenav-normal"> Penjualan </span>
+                                            <a href="pesanan" class="nav-link">
+                                                <span class="sidenav-mini-icon"> P </span>
+                                                <span class="sidenav-normal"> Pemesanan </span>
                                             </a>
                                         </li>
                                         <li class="nav-item">
@@ -212,6 +212,12 @@
                                         </li>
                                     </ul>
                                 </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="bank">
+                                    <i class="ni ni-credit-card"></i>
+                                    <span class="nav-link-text">Bank</span>
+                                </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="daftartutorial">

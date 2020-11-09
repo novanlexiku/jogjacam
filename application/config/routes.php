@@ -54,9 +54,11 @@ $route['dashboard'] = 'admin/dashboard';
 $route['logout'] = 'auth/logout';
 $route['pengguna'] = 'admin/pengguna';
 $route['kategori'] = 'admin/kategori';
+$route['bank'] = 'admin/bank';
 $route['barang'] = 'admin/barang';
 $route['daftartutorial'] = 'admin/tutorial';
 $route['daftarstaff'] = 'admin/staff';
+$route['pesanan'] = 'admin/pemesanan';
 $route['promo'] = 'admin/hotdeals';
 
 $route['aksesoris'] = 'home/aksesoris';

@@ -119,8 +119,8 @@
                                 <span class="nav-link-inner-text">Tutorial</span>
                             </a>
                         </li>
-
                     </ul>
+
 
                 </div>
 
@@ -129,9 +129,10 @@
                     <?php if ($this->session->userdata('logged_in') != TRUE) { ?>
                         <a href="login" class="btn btn-md btn-docs btn-outline-white animate-up-2 mr-3"><i class="fas fa-sign-in-alt mr-2"></i> Login/Daftar</a>
                     <?php } else { ?>
-                        <a href="logout" class="btn btn-md btn-docs btn-outline-white animate-up-2 mr-3"><i class="fas fa-sign-in-alt mr-2"></i> Logout</a>
+                        <a href="dashboard" class="btn btn-md btn-docs btn-outline-white animate-up-2 mr-3"><i class="fas fa-sign-in-alt mr-2"></i> Dashboard</a>
                     <?php } ?>
                 </div>
+
                 <div class="d-flex d-lg-none align-items-center">
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 </div>

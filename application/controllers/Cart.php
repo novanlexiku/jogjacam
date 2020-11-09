@@ -77,6 +77,7 @@ class Cart extends CI_Controller
     {
         if ($this->session->userdata("logged_in")) {
             $data['data'] = $this->M_cart->get_all_barang();
+            $data['bank'] = $this->M_cart->get_all_bank();
             $title = array(
                 'title' => 'jogjaCam Pusatnya Aksesoris Kamera'
             );
@@ -95,16 +96,18 @@ class Cart extends CI_Controller
             $nohp = $this->input->post('nohp');
             $tujuan = $this->input->post('tujuan');
             $bank = $this->input->post('pembayaran');
+            $date = date('y-m-d');
             $status = 'pending';
             $total = $this->cart->total();
-            $nofak = $this->m_cart->get_nofak();
+            $nofak = $this->M_cart->get_nofak();
             $this->session->set_userdata('nofak', $nofak);
-            $order_proses = $this->m_cart->proses_pemesanan($nofak, $total, $nama, $nohp, $tujuan, $bank, $status);
+            $order_proses = $this->M_cart->proses_pemesanan($nofak, $total, $nama, $nohp, $tujuan, $bank, $date, $status);
             if ($order_proses) {
                 $this->cart->destroy();
                 $this->session->unset_userdata('tglfak');
                 $this->session->unset_userdata('suplier');
                 echo $this->session->set_flashdata('msg', 'suksespesan');
+                redirect('pemesanan');
             } else {
                 redirect('home');
             }
