@@ -162,8 +162,8 @@
                             <div class="card left-timeline-card bg-soft shadow-soft border-light p-3">
                                 <div class="card-body p-4">
                                     <h4 class="mb-3"><span class="d-lg-none">4.</span> Konfirmasi pembayaran</h4>
-                                    <p class="my-2">Lakukan konfirmasi pembayaran pada kontak yang telah disediakan.</p>
-                                    <p>Upload bukti pembayaran pada halaman konfirmasi.</p>
+                                    <p class="my-2">Lakukan konfirmasi pembayaran pada halaman dashboard pengguna.</p>
+                                    <p>Upload bukti pembayaran pada halaman status pembayaran.</p>
                                 </div>
                             </div>
                         </div>

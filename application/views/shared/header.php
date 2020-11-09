@@ -122,12 +122,6 @@
                                 <div class="collapse" id="navbar-transaksi">
                                     <ul class="nav nav-sm flex-column">
                                         <li class="nav-item">
-                                            <a href="pesanan" class="nav-link">
-                                                <span class="sidenav-mini-icon"> P </span>
-                                                <span class="sidenav-normal"> Pemesanan </span>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
                                             <a href="pembelian" class="nav-link">
                                                 <span class="sidenav-mini-icon"> B </span>
                                                 <span class="sidenav-normal"> Pembelian </span>
@@ -144,9 +138,9 @@
                                 <div class="collapse" id="navbar-konfirmasi">
                                     <ul class="nav nav-sm flex-column">
                                         <li class="nav-item">
-                                            <a href="konfirmasipembayaran" class="nav-link">
+                                            <a href="pesanan" class="nav-link">
                                                 <span class="sidenav-mini-icon"> P </span>
-                                                <span class="sidenav-normal"> Pembayaran </span>
+                                                <span class="sidenav-normal"> Pemesanan </span>
                                             </a>
                                         </li>
                                         <li class="nav-item">

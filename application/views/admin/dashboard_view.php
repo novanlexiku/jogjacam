@@ -41,9 +41,8 @@
 <!-- Optional JS -->
 <script src="<?php echo base_url() ?>assets/dashboard/assets/vendor/chart.js/dist/Chart.min.js"></script>
 <script src="<?php echo base_url() ?>assets/dashboard/assets/vendor/chart.js/dist/Chart.extension.js"></script>
-<script src="<?php echo base_url() ?>assets/dashboard/assets/vendor/summernote-master/summernote-lite.min.js"></script>
 <script src="<?php echo base_url() ?>assets/dashboard/assets/vendor/dropify/dropify.min.js"></script>
-
+<script src="<?php echo base_url() ?>assets/dashboard/assets/vendor/summernote-master/summernote.min.js"></script>
 <!-- Argon JS -->
 <script src="<?php echo base_url() ?>assets/dashboard/assets/js/dashboard.js?v=1.2.0"></script>
 <!-- Datatables JS -->
