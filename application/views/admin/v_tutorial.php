@@ -172,7 +172,7 @@ foreach ($data->result_array() as $a) {
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 
                 </div>
-                <form class="form-horizontal" method="post" action="<?php echo base_url() . 'index.php/admin/tutorial/edit_tutorial' ?>">
+                <form class="form-horizontal" method="post" action="<?php echo base_url() . 'index.php/admin/tutorial/edit_tutorial' ?>" enctype="multipart/form-data">
                     <div class="modal-body">
                         <input name="kode" type="hidden" value="<?php echo $id; ?>">
 

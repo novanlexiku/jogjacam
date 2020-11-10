@@ -107,7 +107,7 @@ class Cart extends CI_Controller
                 $this->session->unset_userdata('tglfak');
                 $this->session->unset_userdata('suplier');
                 echo $this->session->set_flashdata('msg', 'suksespesan');
-                redirect('pemesanan');
+                redirect('pemesanan_pelanggan');
             } else {
                 redirect('home');
             }

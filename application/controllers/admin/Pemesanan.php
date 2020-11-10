@@ -35,7 +35,7 @@ class Pemesanan extends CI_Controller
             $sts = $this->input->post('invoice_status');
             $this->m_pemesanan->update($id, $sts);
             echo $this->session->set_flashdata('msg', 'konfirmasi');
-            redirect('pesanan');
+            redirect('pemesanan');
         } else {
             echo "Halaman tidak ditemukan";
         }
@@ -68,11 +68,11 @@ class Pemesanan extends CI_Controller
 
                     $gambar = $gbr['file_name'];
                     $this->m_pemesanan->update_invoice($id, $gambar);
-                    echo $this->session->set_flashdata('msg', 'editbrg');
-                    redirect('barang');
+                    echo $this->session->set_flashdata('msg', 'uploadkonfirmasi');
+                    redirect('pemesanan');
                 } else {
                     echo $this->session->set_flashdata('msg', 'error-img');
-                    redirect('barang');
+                    redirect('pemesanan');
                 }
             }
         } else {

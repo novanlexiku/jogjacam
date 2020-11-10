@@ -140,7 +140,7 @@
                                 <div class="collapse" id="navbar-konfirmasi">
                                     <ul class="nav nav-sm flex-column">
                                         <li class="nav-item">
-                                            <a href="pesanan" class="nav-link">
+                                            <a href="pemesanan" class="nav-link">
                                                 <span class="sidenav-mini-icon"> P </span>
                                                 <span class="sidenav-normal"> Pemesanan </span>
                                             </a>
@@ -258,7 +258,7 @@
                                 <div class="collapse" id="navbar-konfirmasi">
                                     <ul class="nav nav-sm flex-column">
                                         <li class="nav-item">
-                                            <a href="pesanan" class="nav-link">
+                                            <a href="pemesanan" class="nav-link">
                                                 <span class="sidenav-mini-icon"> P </span>
                                                 <span class="sidenav-normal"> Pemesanan </span>
                                             </a>
@@ -292,7 +292,7 @@
                                 <div class="collapse" id="navbar-konfirmasi">
                                     <ul class="nav nav-sm flex-column">
                                         <li class="nav-item">
-                                            <a href="pesanan" class="nav-link">
+                                            <a href="pemesanan" class="nav-link">
                                                 <span class="sidenav-mini-icon"> P </span>
                                                 <span class="sidenav-normal"> Pemesanan </span>
                                             </a>

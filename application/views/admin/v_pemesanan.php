@@ -114,7 +114,11 @@
                                     <td style="text-align:center;">
                                         <?php if ($this->session->userdata('user_level') == '1' || $this->session->userdata('user_level') == '2') { ?>
                                             <a class="btn btn-warning btn-sm" href="#modalDetail<?php echo $id ?>" data-toggle="modal" title="Detail"><span class="fa fa-edit"></span> Detail</a>
-                                            <a class="btn btn-warning btn-sm" href="#modalUpdate<?php echo $id ?>" data-toggle="modal" title="Update"><span class="fa fa-edit"></span> Update</a>
+                                            <?php if ($sts == 'pending') { ?>
+                                                <a class="btn btn-info btn-sm" href="#modalUpdate<?php echo $id ?>" data-toggle="modal" title="Update"><span class="fa fa-edit"></span> Update</a>
+                                            <?php } else { ?>
+                                                <a class="btn btn-info btn-sm disabled" href="#modalUpdate<?php echo $id ?>" data-toggle="modal" title="Update"><span class="fa fa-edit"></span> <?php echo $sts; ?></a>
+                                            <?php } ?>
                                             <a class="btn btn-sm btn-danger" href="#modalHapus<?php echo $id ?>" data-toggle="modal" title="Hapus"><span class="fa fa-close"></span> Hapus</a>
 
                                         <?php } elseif ($this->session->userdata('user_level') == '3') { ?>
@@ -158,20 +162,20 @@ foreach ($detail->result_array() as $a) {
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 
                 </div>
-                <div class="modal-body">
-                    <h5>Nama : <?php echo $nm; ?></h5>
-                    <h5>No.Invoice : <?php echo $id; ?></h5>
-                    <h5>Tanggal: <?php echo $tgl; ?></h5>
-                    <h5>Tujuan Pengiriman : <?php echo $tuj; ?></h5>
-                    <h5>Status : <?php echo $sts; ?></h5>
-                    <?php if ($this->session->userdata('user_level') == '1' || $this->session->userdata('user_level') == '2') {
-                        if ($kon == '') { ?>
-                            <h5>Pembayaran : Belum melakukan pembayaran</h5>
-                        <?php } else { ?>
-                            <a data-fancybox="gallery" href="<?php echo base_url() . 'assets/upload/images/konfirmasi/' . $kon; ?>"><img src="<?php echo base_url() . 'assets/upload/images/konfirmasi/' . $kon; ?>"></a>
-                        <?php } ?>
-                    <?php } elseif ($this->session->userdata('user_level') == '3') { ?>
-                        <form class="form-horizontal" method="post" action="<?php echo base_url() . 'index.php/admin/pemesanan/konfirmasi' ?>">
+                <form class="form-horizontal" method="post" action="<?php echo base_url() . 'index.php/admin/pemesanan/konfirmasi' ?>" enctype="multipart/form-data">
+                    <div class="modal-body">
+                        <h5>Nama : <?php echo $nm; ?></h5>
+                        <h5>No.Invoice : <?php echo $id; ?></h5>
+                        <h5>Tanggal: <?php echo $tgl; ?></h5>
+                        <h5>Tujuan Pengiriman : <?php echo $tuj; ?></h5>
+                        <h5>Status : <?php echo $sts; ?></h5>
+                        <?php if ($this->session->userdata('user_level') == '1' || $this->session->userdata('user_level') == '2') {
+                            if ($kon == '') { ?>
+                                <h5>Pembayaran : Belum melakukan pembayaran</h5>
+                            <?php } else { ?>
+                                <a data-fancybox="gallery" href="<?php echo base_url() . 'assets/upload/images/konfirmasi/' . $kon; ?>"><img src="<?php echo base_url() . 'assets/upload/images/konfirmasi/' . $kon; ?>"></a>
+                            <?php } ?>
+                        <?php } elseif ($this->session->userdata('user_level') == '3') { ?>
                             <input name="invoice_id" type="hidden" value="<?php echo $id; ?>">
 
                             <div class="form-group">
@@ -180,53 +184,57 @@ foreach ($detail->result_array() as $a) {
                                     <input type="file" name="filefoto" class="dropify" data-height="220" data-default-file="<?php echo base_url() . 'assets/upload/images/konfirmasi/' . $kon; ?>">
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-info btn-sm">Upload</button>
-                        </form>
 
-                    <?php } ?>
+                        <?php } ?>
 
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th>Produk</th>
-                                <th>Harga</th>
-                                <th>Quantity</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            $jmlqty = 0;
-                            foreach ($detail->result_array() as $a) {
-                                $ttl = $a['invoice_total'];
-                                $inm = $a['bi_barang_nama'];
-                                $inh = $a['bi_barang_harjul'];
-                                $inq = $a['bi_barang_qty'];
-                                $jmlqty = $jmlqty + $inq;
-                            ?>
+                        <table class="table table-striped">
+                            <thead>
                                 <tr>
-                                    <td><?php echo $inm; ?></td>
-                                    <td><?php echo 'Rp ' . number_format($inh); ?></td>
-                                    <td><?php echo $inq; ?></td>
-
+                                    <th>Produk</th>
+                                    <th>Harga</th>
+                                    <th>Quantity</th>
                                 </tr>
-                            <?php
-                            }
-                            ?>
-                            <tr>
-                                <th>Total</th>
-                                <th><?php echo 'Rp ' . number_format($ttl); ?></th>
-                                <th><?php echo $jmlqty; ?></th>
-                            </tr>
-                        </tbody>
+                            </thead>
+                            <tbody>
+                                <?php
+                                $jmlqty = 0;
+                                foreach ($detail->result_array() as $a) {
+                                    $ttl = $a['invoice_total'];
+                                    $inm = $a['bi_barang_nama'];
+                                    $inh = $a['bi_barang_harjul'];
+                                    $inq = $a['bi_barang_qty'];
+                                    $jmlqty = $jmlqty + $inq;
+                                ?>
+                                    <tr>
+                                        <td><?php echo $inm; ?></td>
+                                        <td><?php echo 'Rp ' . number_format($inh); ?></td>
+                                        <td><?php echo $inq; ?></td>
 
-                    </table>
+                                    </tr>
+                                <?php
+                                }
+                                ?>
+                                <tr>
+                                    <th>Total</th>
+                                    <th><?php echo 'Rp ' . number_format($ttl); ?></th>
+                                    <th><?php echo $jmlqty; ?></th>
+                                </tr>
+                            </tbody>
+
+                        </table>
 
 
 
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-sm" data-dismiss="modal" aria-hidden="true">Tutup</button>
-                </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <?php if ($this->session->userdata('user_level') == '3') { ?>
+                            <button type="submit" class="btn btn-info btn-sm">Konfirmasi</button>
+                        <?php } ?>
+                        <button class="btn btn-sm" data-dismiss="modal" aria-hidden="true">Tutup</button>
+                    </div>
+                </form>
+
             </div>
         </div>
     </div>

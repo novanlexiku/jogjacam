@@ -58,12 +58,12 @@ $route['bank'] = 'admin/bank';
 $route['barang'] = 'admin/barang';
 $route['daftartutorial'] = 'admin/tutorial';
 $route['daftarstaff'] = 'admin/staff';
-$route['pesanan'] = 'admin/pemesanan';
+$route['pemesanan'] = 'admin/pemesanan';
 $route['promo'] = 'admin/hotdeals';
 
 $route['aksesoris'] = 'home/aksesoris';
 $route['kamera'] = 'home/kamera';
-$route['pemesanan'] = 'cart/pemesanan';
+$route['pemesanan_pelanggan'] = 'cart/pemesanan';
 $route['register'] = 'Register';
 $route['login'] = 'login';
 $route['logout'] = 'login/logout';

@@ -123,7 +123,7 @@
                     </table>
                 </div>
                 <div class="modal-footer">
-                    <a href="pemesanan" class="btn btn-secondary">Pesan sekarang</a>
+                    <a href="pemesanan_pelanggan" class="btn btn-secondary">Pesan sekarang</a>
                 </div>
             </div>
         </div>
