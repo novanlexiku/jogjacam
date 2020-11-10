@@ -59,6 +59,7 @@ $route['barang'] = 'admin/barang';
 $route['daftartutorial'] = 'admin/tutorial';
 $route['daftarstaff'] = 'admin/staff';
 $route['pemesanan'] = 'admin/pemesanan';
+$route['pengiriman'] = 'admin/pengiriman';
 $route['promo'] = 'admin/hotdeals';
 
 $route['aksesoris'] = 'home/aksesoris';

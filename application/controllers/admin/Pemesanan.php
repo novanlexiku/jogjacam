@@ -30,7 +30,7 @@ class Pemesanan extends CI_Controller
 
     function update()
     {
-        if ($this->session->userdata('user_level') == '1') {
+        if ($this->session->userdata('user_level') == '1' || $this->session->userdata('user_level') == '2') {
             $id = $this->input->post('invoice_id');
             $sts = $this->input->post('invoice_status');
             $this->m_pemesanan->update($id, $sts);

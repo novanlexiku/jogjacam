@@ -146,7 +146,7 @@
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="konfirmasipengiriman" class="nav-link">
+                                            <a href="pengiriman" class="nav-link">
                                                 <span class="sidenav-mini-icon"> P </span>
                                                 <span class="sidenav-normal"> Pengiriman </span>
                                             </a>
@@ -264,7 +264,7 @@
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="konfirmasipengiriman" class="nav-link">
+                                            <a href="pengiriman" class="nav-link">
                                                 <span class="sidenav-mini-icon"> P </span>
                                                 <span class="sidenav-normal"> Pengiriman </span>
                                             </a>
@@ -298,7 +298,7 @@
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="konfirmasipengiriman" class="nav-link">
+                                            <a href="pengiriman" class="nav-link">
                                                 <span class="sidenav-mini-icon"> P </span>
                                                 <span class="sidenav-normal"> Pengiriman </span>
                                             </a>

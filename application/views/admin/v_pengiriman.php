@@ -8,7 +8,7 @@
                         <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                             <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
                             <li class="breadcrumb-item"><a href="#">Dashboards</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Pemesanan</li>
+                            <li class="breadcrumb-item active" aria-current="page">Pengiriman</li>
                         </ol>
                     </nav>
                 </div>
@@ -25,46 +25,16 @@
         <div class="col-xl-12 mb-5 mb-xl-0">
             <div class="card shadow">
                 <div class="card-header border-0">
-                    <h2 class="mb-0">Pemesanan Barang</h3>
+                    <h2 class="mb-0">Pengiriman Barang</h3>
 
                         <div class="mt-1">
                             <?php
                             $msg = $this->session->flashdata('msg');
-                            if ($msg == "konfirmasi") {
+                            if ($msg == "pengiriman") {
                             ?>
                                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                                     <span class="alert-icon"><i class="ni ni-like-2"></i></span>
-                                    <span class="alert-text"><strong>Sukses!</strong> konfirmasi pemesanan!</span>
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                            <?php
-                            } elseif ($msg == "hapus") {
-                            ?>
-                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                    <span class="alert-icon"><i class="ni ni-like-2"></i></span>
-                                    <span class="alert-text"><strong>Sukses!</strong> Hapus Data Pemesanan!</span>
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                            <?php
-                            } elseif ($msg == "uploadkonfirmasi") {
-                            ?>
-                                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                    <span class="alert-icon"><i class="ni ni-like-2"></i></span>
-                                    <span class="alert-text"><strong>Sukses!</strong> Upload Gambar!</span>
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                            <?php
-                            } elseif ($msg == "error-img") {
-                            ?>
-                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                    <span class="alert-icon"><i class="ni ni-like-2"></i></span>
-                                    <span class="alert-text"><strong>Sukses!</strong> Hapus Data Pemesanan!</span>
+                                    <span class="alert-text"><strong>Sukses!</strong> Barang dalam proses pengiriman!</span>
                                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
@@ -114,12 +84,10 @@
                                     <td style="text-align:center;">
                                         <?php if ($this->session->userdata('user_level') == '1' || $this->session->userdata('user_level') == '2') { ?>
                                             <a class="btn btn-warning btn-sm" href="#modalDetail<?php echo $id ?>" data-toggle="modal" title="Detail"><span class="fa fa-edit"></span> Detail</a>
-                                            <?php if ($sts == 'pending') { ?>
+                                            <?php if ($sts == 'packing') { ?>
                                                 <a class="btn btn-info btn-sm" href="#modalUpdate<?php echo $id ?>" data-toggle="modal" title="Update"><span class="fa fa-edit"></span> Update</a>
-                                                <a class="btn btn-sm btn-danger" href="#modalHapus<?php echo $id ?>" data-toggle="modal" title="Hapus"><span class="fa fa-close"></span> Hapus</a>
                                             <?php } else { ?>
                                                 <a class="btn btn-info btn-sm disabled" href="#modalUpdate<?php echo $id ?>" data-toggle="modal" title="Update"><span class="fa fa-edit"></span> <?php echo $sts; ?></a>
-                                                <a class="btn btn-sm btn-danger disabled" href="#modalHapus<?php echo $id ?>" data-toggle="modal" title="Hapus"><span class="fa fa-close"></span> Hapus</a>
                                             <?php } ?>
 
                                         <?php } elseif ($this->session->userdata('user_level') == '3') { ?>
@@ -163,78 +131,70 @@ foreach ($detail->result_array() as $a) {
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 
                 </div>
-                <form class="form-horizontal" method="post" action="<?php echo base_url() . 'index.php/admin/pemesanan/konfirmasi' ?>" enctype="multipart/form-data">
-                    <div class="modal-body">
-                        <h5>Nama : <?php echo $nm; ?></h5>
-                        <h5>No.Invoice : <?php echo $id; ?></h5>
-                        <h5>Tanggal: <?php echo $tgl; ?></h5>
-                        <h5>Tujuan Pengiriman : <?php echo $tuj; ?></h5>
-                        <h5>Status : <?php echo $sts; ?></h5>
-                        <?php if ($this->session->userdata('user_level') == '1' || $this->session->userdata('user_level') == '2') {
-                            if ($kon == '') { ?>
-                                <h5>Pembayaran : Belum melakukan pembayaran</h5>
-                            <?php } else { ?>
-                                <a data-fancybox="gallery" href="<?php echo base_url() . 'assets/upload/images/konfirmasi/' . $kon; ?>"><img src="<?php echo base_url() . 'assets/upload/images/konfirmasi/' . $kon; ?>"></a>
-                            <?php } ?>
-                        <?php } elseif ($this->session->userdata('user_level') == '3') { ?>
-                            <input name="invoice_id" type="hidden" value="<?php echo $id; ?>">
-
-                            <div class="form-group">
-                                <label class="control-label col-xs-3">Konfirmasi</label>
-                                <div class="form-group">
-                                    <input type="file" name="filefoto" class="dropify" data-height="220" data-default-file="<?php echo base_url() . 'assets/upload/images/konfirmasi/' . $kon; ?>">
-                                </div>
-                            </div>
-
+                <div class="modal-body">
+                    <h5>Nama : <?php echo $nm; ?></h5>
+                    <h5>No.Invoice : <?php echo $id; ?></h5>
+                    <h5>Tanggal: <?php echo $tgl; ?></h5>
+                    <h5>Tujuan Pengiriman : <?php echo $tuj; ?></h5>
+                    <h5>Status : <?php echo $sts; ?></h5>
+                    <?php if ($this->session->userdata('user_level') == '1' || $this->session->userdata('user_level') == '2') {
+                        if ($kon == '') { ?>
+                            <h5>Pembayaran : Belum melakukan pembayaran</h5>
+                        <?php } else { ?>
+                            <a data-fancybox="gallery" href="<?php echo base_url() . 'assets/upload/images/konfirmasi/' . $kon; ?>"><img src="<?php echo base_url() . 'assets/upload/images/konfirmasi/' . $kon; ?>"></a>
+                        <?php } ?>
+                        <?php } elseif ($this->session->userdata('user_level') == '3') {
+                        if ($kon == '') { ?>
+                            <h5>Pembayaran : Belum melakukan pembayaran</h5>
+                        <?php } else { ?>
+                            <a data-fancybox="gallery" href="<?php echo base_url() . 'assets/upload/images/konfirmasi/' . $kon; ?>"><img src="<?php echo base_url() . 'assets/upload/images/konfirmasi/' . $kon; ?>"></a>
                         <?php } ?>
 
-                        <table class="table table-striped">
-                            <thead>
+                    <?php } ?>
+
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Produk</th>
+                                <th>Harga</th>
+                                <th>Quantity</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $jmlqty = 0;
+                            foreach ($detail->result_array() as $a) {
+                                $ttl = $a['invoice_total'];
+                                $inm = $a['bi_barang_nama'];
+                                $inh = $a['bi_barang_harjul'];
+                                $inq = $a['bi_barang_qty'];
+                                $jmlqty = $jmlqty + $inq;
+                            ?>
                                 <tr>
-                                    <th>Produk</th>
-                                    <th>Harga</th>
-                                    <th>Quantity</th>
+                                    <td><?php echo $inm; ?></td>
+                                    <td><?php echo 'Rp ' . number_format($inh); ?></td>
+                                    <td><?php echo $inq; ?></td>
+
                                 </tr>
-                            </thead>
-                            <tbody>
-                                <?php
-                                $jmlqty = 0;
-                                foreach ($detail->result_array() as $a) {
-                                    $ttl = $a['invoice_total'];
-                                    $inm = $a['bi_barang_nama'];
-                                    $inh = $a['bi_barang_harjul'];
-                                    $inq = $a['bi_barang_qty'];
-                                    $jmlqty = $jmlqty + $inq;
-                                ?>
-                                    <tr>
-                                        <td><?php echo $inm; ?></td>
-                                        <td><?php echo 'Rp ' . number_format($inh); ?></td>
-                                        <td><?php echo $inq; ?></td>
+                            <?php
+                            }
+                            ?>
+                            <tr>
+                                <th>Total</th>
+                                <th><?php echo 'Rp ' . number_format($ttl); ?></th>
+                                <th><?php echo $jmlqty; ?></th>
+                            </tr>
+                        </tbody>
 
-                                    </tr>
-                                <?php
-                                }
-                                ?>
-                                <tr>
-                                    <th>Total</th>
-                                    <th><?php echo 'Rp ' . number_format($ttl); ?></th>
-                                    <th><?php echo $jmlqty; ?></th>
-                                </tr>
-                            </tbody>
-
-                        </table>
+                    </table>
 
 
 
-                    </div>
+                </div>
 
-                    <div class="modal-footer">
-                        <?php if ($this->session->userdata('user_level') == '3') { ?>
-                            <button type="submit" class="btn btn-info btn-sm">Konfirmasi</button>
-                        <?php } ?>
-                        <button class="btn btn-sm" data-dismiss="modal" aria-hidden="true">Tutup</button>
-                    </div>
-                </form>
+                <div class="modal-footer">
+                    <button class="btn btn-sm" data-dismiss="modal" aria-hidden="true">Tutup</button>
+                </div>
 
             </div>
         </div>
@@ -261,10 +221,10 @@ foreach ($data->result_array() as $a) {
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 
                 </div>
-                <form class="form-horizontal" method="post" action="<?php echo base_url() . 'index.php/admin/pemesanan/update' ?>">
+                <form class="form-horizontal" method="post" action="<?php echo base_url() . 'index.php/admin/pengiriman/update' ?>">
                     <div class="modal-body">
                         <input name="invoice_id" type="hidden" value="<?php echo $id; ?>">
-                        <input name="invoice_status" type="hidden" value="packing">
+                        <input name="invoice_status" type="hidden" value="pengiriman">
 
                         <p>Ganti Status pemesanan oleh <?php echo $nm; ?> dengan nomor invoice : <?php echo $id; ?> ?</p>
 
@@ -272,40 +232,6 @@ foreach ($data->result_array() as $a) {
                     <div class="modal-footer">
                         <button class="btn btn-sm" data-dismiss="modal" aria-hidden="true">Tutup</button>
                         <button type="submit" class="btn btn-info btn-sm">Update</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-<?php
-}
-?>
-<!-- ============ MODAL HAPUS =============== -->
-<?php
-foreach ($data->result_array() as $a) {
-    $id = $a['invoice_id'];
-    $nm = $a['invoice_user_nama'];
-    $tgl = $a['invoice_tanggal'];
-    $ttl = $a['invoice_total'];
-    $kon = $a['invoice_konfirmasi'];
-    $sts = $a['invoice_status'];
-?>
-    <div id="modalHapusPemesanan<?php echo $id ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3 class="modal-title" id="myModalLabel">Hapus Pemesanan</h3>
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-
-                </div>
-                <form class="form-horizontal" method="post" action="<?php echo base_url() . 'index.php/admin/pemesanan/hapus' ?>">
-                    <div class="modal-body">
-                        <p>Batalkan pemesanan oleh <?php echo $nm; ?> dengan nomor invoice :<?php echo $id; ?> ?</p>
-                        <input name="invoice_id" type="hidden" value="<?php echo $id; ?>">
-                    </div>
-                    <div class="modal-footer">
-                        <button class="btn" data-dismiss="modal" aria-hidden="true">Tutup</button>
-                        <button type="submit" class="btn btn-primary">Hapus</button>
                     </div>
                 </form>
             </div>
