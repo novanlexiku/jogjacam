@@ -223,6 +223,7 @@ foreach ($data->result_array() as $a) {
 <script src="<?php echo base_url() ?>assets/dashboard/assets/vendor/chart.js/dist/Chart.extension.js"></script>
 <script src="<?php echo base_url() ?>assets/dashboard/assets/vendor/dropify/dropify.min.js"></script>
 <script src="<?php echo base_url() ?>assets/dashboard/assets/vendor/summernote-master/summernote.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 
 
 <!-- Argon JS -->

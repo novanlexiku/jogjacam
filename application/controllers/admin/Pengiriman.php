@@ -14,9 +14,16 @@ class Pengiriman extends CI_Controller
     }
     function index()
     {
-        if ($this->session->userdata('user_level') == '1' || $this->session->userdata('user_level') == '2' || $this->session->userdata('user_level') == '3') {
+        if ($this->session->userdata('user_level') == '1' || $this->session->userdata('user_level') == '2') {
             $data['data'] = $this->m_pemesanan->get_all_invoice();
-            $data['detail'] = $this->m_pemesanan->get_detail_invoice();
+
+            $title = array(
+                'title' => 'Halaman Pengiriman',
+            );
+            $this->load->view('shared/header', $title);
+            $this->load->view('admin/v_pengiriman', $data);
+        } elseif ($this->session->userdata('user_level') == '3') {
+            $data['data'] = $this->m_pemesanan->get_pelanggan_invoice();
 
             $title = array(
                 'title' => 'Halaman Pengiriman',
@@ -26,6 +33,19 @@ class Pengiriman extends CI_Controller
         } else {
             echo "Halaman tidak ditemukan";
         }
+    }
+
+    function detail()
+    {
+        $id = $this->input->post('invoice_id');
+        $data['data'] = $this->m_pemesanan->get_all_invoice();
+        $data['detail'] = $this->m_pemesanan->get_admin_detail_invoice($id);
+
+        $title = array(
+            'title' => 'Halaman Detail',
+        );
+        $this->load->view('shared/header', $title);
+        $this->load->view('admin/detail/v_detail_invoice', $data);
     }
 
     function update()

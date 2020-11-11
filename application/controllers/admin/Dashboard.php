@@ -27,13 +27,6 @@ class Dashboard extends CI_Controller
             $url = base_url();
             redirect($url);
         };
-        $this->load->model('m_kategori');
-        $this->load->model('m_barang');
-        $this->load->model('m_suplier');
-        $this->load->model('m_pembelian');
-        $this->load->model('m_penjualan');
-        $this->load->model('m_laporan');
-        $this->load->model('m_grafik');
         $this->load->library('datatables');
     }
 

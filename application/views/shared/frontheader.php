@@ -125,7 +125,7 @@
                 </div>
 
                 <div class="d-none d-lg-block @@cta_button_classes">
-                    <a href="#!" data-toggle="modal" data-target="#ModalCart" class="btn btn-md btn-docs btn-outline-white animate-up-2 mr-3"><i class="fas fa-shopping-cart mr-2"></i> Pesanan</a>
+                    <a href="#!" data-toggle="modal" data-target="#ModalCart" class="btn btn-md btn-docs btn-outline-white animate-up-2 mr-3"><i class="fas fa-shopping-cart mr-2"></i> Keranjang <span class="badge badge-danger"><?php $this->cart->total_items();?></span></a>
                     <?php if ($this->session->userdata('logged_in') != TRUE) { ?>
                         <a href="login" class="btn btn-md btn-docs btn-outline-white animate-up-2 mr-3"><i class="fas fa-sign-in-alt mr-2"></i> Login/Daftar</a>
                     <?php } else { ?>

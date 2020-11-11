@@ -110,7 +110,7 @@
                     <!-- Nav items -->
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="dashboard">
+                            <a class="nav-link" href="<?php echo base_url() ?>dashboard">
                                 <i class="ni ni-shop text-primary"></i>
                                 <span class="nav-link-text">Dashboards</span>
                             </a>
@@ -124,7 +124,7 @@
                                 <div class="collapse" id="navbar-transaksi">
                                     <ul class="nav nav-sm flex-column">
                                         <li class="nav-item">
-                                            <a href="pembelian" class="nav-link">
+                                            <a href="<?php echo base_url() ?>pembelian" class="nav-link">
                                                 <span class="sidenav-mini-icon"> B </span>
                                                 <span class="sidenav-normal"> Pembelian </span>
                                             </a>
@@ -140,13 +140,13 @@
                                 <div class="collapse" id="navbar-konfirmasi">
                                     <ul class="nav nav-sm flex-column">
                                         <li class="nav-item">
-                                            <a href="pemesanan" class="nav-link">
+                                            <a href="<?php echo base_url() ?>pemesanan" class="nav-link">
                                                 <span class="sidenav-mini-icon"> P </span>
                                                 <span class="sidenav-normal"> Pemesanan </span>
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="pengiriman" class="nav-link">
+                                            <a href="<?php echo base_url() ?>pengiriman" class="nav-link">
                                                 <span class="sidenav-mini-icon"> P </span>
                                                 <span class="sidenav-normal"> Pengiriman </span>
                                             </a>
@@ -167,19 +167,19 @@
                                 <div class="collapse" id="navbar-barang">
                                     <ul class="nav nav-sm flex-column">
                                         <li class="nav-item">
-                                            <a href="barang" class="nav-link">
+                                            <a href="<?php echo base_url() ?>barang" class="nav-link">
                                                 <span class="sidenav-mini-icon"> B </span>
                                                 <span class="sidenav-normal"> Barang </span>
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="promo" class="nav-link">
+                                            <a href="<?php echo base_url() ?>promo" class="nav-link">
                                                 <span class="sidenav-mini-icon"> P </span>
                                                 <span class="sidenav-normal"> Promo </span>
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="kategori" class="nav-link">
+                                            <a href="<?php echo base_url() ?>kategori" class="nav-link">
                                                 <span class="sidenav-mini-icon"> K </span>
                                                 <span class="sidenav-normal"> Kategori </span>
                                             </a>
@@ -195,13 +195,13 @@
                                 <div class="collapse" id="navbar-pengguna">
                                     <ul class="nav nav-sm flex-column">
                                         <li class="nav-item">
-                                            <a href="pengguna" class="nav-link">
+                                            <a href="<?php echo base_url() ?>pengguna" class="nav-link">
                                                 <span class="sidenav-mini-icon"> U </span>
                                                 <span class="sidenav-normal"> Pengguna </span>
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="daftarstaff" class="nav-link">
+                                            <a href="<?php echo base_url() ?>daftarstaff" class="nav-link">
                                                 <span class="sidenav-mini-icon"> S </span>
                                                 <span class="sidenav-normal"> Staff </span>
                                             </a>
@@ -210,19 +210,19 @@
                                 </div>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="bank">
+                                <a class="nav-link" href="<?php echo base_url() ?>bank">
                                     <i class="ni ni-credit-card"></i>
                                     <span class="nav-link-text">Bank</span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="daftartutorial">
+                                <a class="nav-link" href="<?php echo base_url() ?>daftartutorial">
                                     <i class="ni ni-air-baloon"></i>
                                     <span class="nav-link-text">Tutorial</span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="laporan">
+                                <a class="nav-link" href="<?php echo base_url() ?>laporan">
                                     <i class="ni ni-chart-pie-35"></i>
                                     <span class="nav-link-text">Laporan</span>
                                 </a>
@@ -236,13 +236,13 @@
                                 <div class="collapse" id="navbar-transaksi">
                                     <ul class="nav nav-sm flex-column">
                                         <li class="nav-item">
-                                            <a href="penjualan" class="nav-link">
+                                            <a href="<?php echo base_url() ?>penjualan" class="nav-link">
                                                 <span class="sidenav-mini-icon"> J </span>
                                                 <span class="sidenav-normal"> Penjualan </span>
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="pembelian" class="nav-link">
+                                            <a href="<?php echo base_url() ?>pembelian" class="nav-link">
                                                 <span class="sidenav-mini-icon"> B </span>
                                                 <span class="sidenav-normal"> Pembelian </span>
                                             </a>
@@ -258,13 +258,13 @@
                                 <div class="collapse" id="navbar-konfirmasi">
                                     <ul class="nav nav-sm flex-column">
                                         <li class="nav-item">
-                                            <a href="pemesanan" class="nav-link">
+                                            <a href="<?php echo base_url() ?>pemesanan" class="nav-link">
                                                 <span class="sidenav-mini-icon"> P </span>
                                                 <span class="sidenav-normal"> Pemesanan </span>
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="pengiriman" class="nav-link">
+                                            <a href="<?php echo base_url() ?>pengiriman" class="nav-link">
                                                 <span class="sidenav-mini-icon"> P </span>
                                                 <span class="sidenav-normal"> Pengiriman </span>
                                             </a>
@@ -278,7 +278,7 @@
                             </h6>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="laporan">
+                                <a class="nav-link" href="<?php echo base_url() ?>laporan">
                                     <i class="ni ni-chart-pie-35"></i>
                                     <span class="nav-link-text">Laporan</span>
                                 </a>
@@ -292,13 +292,13 @@
                                 <div class="collapse" id="navbar-konfirmasi">
                                     <ul class="nav nav-sm flex-column">
                                         <li class="nav-item">
-                                            <a href="pemesanan" class="nav-link">
+                                            <a href="<?php echo base_url() ?>pemesanan" class="nav-link">
                                                 <span class="sidenav-mini-icon"> P </span>
                                                 <span class="sidenav-normal"> Pemesanan </span>
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="pengiriman" class="nav-link">
+                                            <a href="<?php echo base_url() ?>pengiriman" class="nav-link">
                                                 <span class="sidenav-mini-icon"> P </span>
                                                 <span class="sidenav-normal"> Pengiriman </span>
                                             </a>
@@ -362,7 +362,7 @@
                                     <span>Settings</span>
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a href="logout" class="dropdown-item">
+                                <a href="<?php echo base_url() ?>logout" class="dropdown-item">
                                     <i class="ni ni-user-run"></i>
                                     <span>Logout</span>
                                 </a>
