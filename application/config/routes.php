@@ -64,6 +64,7 @@ $route['promo'] = 'admin/hotdeals';
 
 $route['aksesoris'] = 'home/aksesoris';
 $route['kamera'] = 'home/kamera';
+$route['overview'] = 'home/overview';
 $route['pemesanan_pelanggan'] = 'cart/pemesanan';
 $route['register'] = 'Register';
 $route['login'] = 'login';

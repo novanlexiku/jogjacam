@@ -71,6 +71,9 @@
 
     <!-- Front CSS -->
     <link type="text/css" href="<?php echo base_url() ?>assets/front/css/front.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/dashboard/assets/vendor/animate.css/animate.min.css">
+
 
 
 </head>
@@ -101,7 +104,7 @@
                     </div>
                     <ul class="navbar-nav navbar-nav-hover justify-content-center">
                         <li class="nav-item">
-                            <a href="<?php echo base_url() ?>" class="nav-link">Overview</a>
+                            <a href="<?php echo base_url() ?>overview" class="nav-link">Overview</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a href="#" class="nav-link" data-toggle="dropdown" aria-controls="pages_submenu" aria-expanded="false" aria-label="Toggle pages menu item">
@@ -109,8 +112,8 @@
                                 <span class="fas fa-angle-down nav-link-arrow ml-2"></span>
                             </a>
                             <ul class="dropdown-menu" id="pages_submenu">
-                                <li><a class="dropdown-item" href="aksesoris">Aksesoris</a></li>
-                                <li><a class="dropdown-item" href="kamera">Kamera</a></li>
+                                <li><a class="dropdown-item" href="<?php echo base_url() ?>aksesoris">Aksesoris</a></li>
+                                <li><a class="dropdown-item" href="<?php echo base_url() ?>kamera">Kamera</a></li>
                             </ul>
                         </li>
 
@@ -125,7 +128,7 @@
                 </div>
 
                 <div class="d-none d-lg-block @@cta_button_classes">
-                    <a href="#!" data-toggle="modal" data-target="#ModalCart" class="btn btn-md btn-docs btn-outline-white animate-up-2 mr-3"><i class="fas fa-shopping-cart mr-2"></i> Keranjang <span class="badge badge-danger"><?php $this->cart->total_items();?></span></a>
+                    <a href="#!" data-toggle="modal" data-target="#ModalCart" class="btn btn-md btn-docs btn-outline-white animate-up-2 mr-3"><i class="fas fa-shopping-cart mr-2"></i> Keranjang <span class="badge badge-primary"><?php echo $this->cart->total_items(); ?></span></a>
                     <?php if ($this->session->userdata('logged_in') != TRUE) { ?>
                         <a href="login" class="btn btn-md btn-docs btn-outline-white animate-up-2 mr-3"><i class="fas fa-sign-in-alt mr-2"></i> Login/Daftar</a>
                     <?php } else { ?>

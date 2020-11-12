@@ -156,6 +156,8 @@
 <script src="<?php echo base_url() ?>assets/vendor/waypoints/lib/jquery.waypoints.min.js"></script>
 <script src="<?php echo base_url() ?>assets/vendor/jarallax/dist/jarallax.min.js"></script>
 <script src="<?php echo base_url() ?>assets/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+<script src="<?php echo base_url() ?>assets/dashboard/assets/vendor/bootstrap-notify/bootstrap-notify.min.js"></script>
+
 
 <!-- Place this tag in your head or just before your close body tag. -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>
@@ -180,7 +182,12 @@
                 },
                 success: function(data) {
                     $('#detail_cart').html(data);
+
                 }
+            });
+            $.notify({
+                message: 'Berhasil menambahkan barang',
+                type: 'success'
             });
         });
 
@@ -199,6 +206,10 @@
                 success: function(data) {
                     $('#detail_cart').html(data);
                 }
+            });
+            $.notify({
+                message: 'Berhasil menghapus barang',
+                type: 'info'
             });
         });
     });

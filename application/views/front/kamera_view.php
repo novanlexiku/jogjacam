@@ -14,7 +14,7 @@
     <section class="section section-lg pt-0">
         <div class="container mt-n7 mt-lg-n13 z-2">
             <div class="justify-content-center">
-                <div class="row">
+                <div class="card-deck">
                     <?php
                     foreach ($data->result_array() as $a) :
                         $id = $a['barang_id'];
@@ -30,23 +30,17 @@
                         $kat_id = $a['barang_kategori_id'];
                         $kat_nama = $a['kategori_nama'];
                     ?>
-                        <div class="col-4">
-                            <div class="profile-card mt-6">
-                                <div class="card shadow-soft border-light text-center">
-                                    <div class="profile-image">
-                                        <img src="<?php echo base_url() . 'assets/upload/images/barang/' . $gbr; ?>" class="card-img-top " alt="image">
-                                    </div>
-                                    <div class="card-body mt-n5">
-                                        <h6 class="card-title"><?php echo $nm; ?></h6>
-                                        <h6 class="card-subtitle"><?php echo 'Rp ' . number_format($harjul); ?></h6>
-                                        <input type="number" name="quantity" id="<?php echo $id; ?>" value="1" class="quantity form-control">
-                                        <button href="" target="_blank" class="btn btn-block btn-outline-info animate-up-2">
-                                            Detail <span class="icon icon-xs"></i></span>
-                                        </button>
-                                        <button class="add_cart btn btn-success btn-block" data-barangid="<?php echo $id; ?>" data-barangnama="<?php echo $nm; ?>" data-barangharga="<?php echo $harjul; ?>">Add To Cart</button>
-
-                                    </div>
-                                </div>
+                        <div class="card">
+                            <img class="card-img-top" src="<?php echo base_url() . 'assets/upload/images/barang/' . $gbr; ?>" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title"><?php echo $nm; ?></h5>
+                                <p class="card-text">Barang ini tersisa : <span class="badge badge-primary"><?php echo $stok; ?> Item</span></p>
+                                <p class="card-text"><small class="text-muted"><?php echo 'Rp ' . number_format($harjul); ?></small></p>
+                            </div>
+                            <div class="text-center">
+                                <button type="button" data-toggle="modal" data-target="#modalDetail<?php echo $id ?>" class="btn btn-block btn-outline-info animate-up-2 ">
+                                    Detail <span class="icon icon-xs"></i></span>
+                                </button>
                             </div>
                         </div>
                     <?php endforeach; ?>
@@ -89,7 +83,60 @@
             </div>
         </div>
     </div>
+    <!-- ============ MODAL DETAIL =============== -->
+    <?php
+    foreach ($data->result_array() as $a) :
+        $id = $a['barang_id'];
+        $gbr = $a['barang_gambar'];
+        $nm = $a['barang_nama'];
+        $desc = html_entity_decode($a['barang_deskripsi']);
+        $satuan = $a['barang_satuan'];
+        $harpok = $a['barang_harpok'];
+        $harjul = $a['barang_harjul'];
+        $harjul_grosir = $a['barang_harjul_grosir'];
+        $stok = $a['barang_stok'];
+        $min_stok = $a['barang_min_stok'];
+        $kat_id = $a['barang_kategori_id'];
+        $kat_nama = $a['kategori_nama'];
+    ?>
+        <div id="modalDetail<?php echo $id; ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
+            <div class="modal-dialog modal-md">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title" id="myModalLabel">Detail Barang</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 
+                    </div>
+                    <div class="modal-body">
+                        <div class="card shadow-soft mb-5 mb-lg-6 px-2">
+                            <div class="card-header border-light p-4">
+                                <!-- Price -->
+                                <div class="d-flex mb-3">
+                                    <span class="h5 mb-0">RP</span>
+                                    <span class="price display-2 mb-0" data-annual="<?php echo number_format($harjul); ?>" data-monthly="<?php echo number_format($harjul); ?>"><?php echo number_format($harjul); ?></span>
+                                </div>
+                                <h4 class="mb-3 text-black"><?php echo $nm; ?></h4>
+                            </div>
+                            <div class="card-body pt-5">
+                                <p class="font-weight-normal mb-0"><?php echo $desc; ?></p>
+                                <a data-fancybox="gallery" href="<?php echo base_url() . 'assets/upload/images/barang/' . $gbr; ?>"><img src="<?php echo base_url() . 'assets/upload/images/barang/' . $gbr; ?>"></a>
+                            </div>
+                            <div class="card-footer px-4 pb-4">
+                                <input type="number" name="quantity" id="<?php echo $id; ?>" value="1" class="quantity form-control">
+                                <!-- Button -->
+                                <button class="add_cart btn btn-block btn-outline-success animate-up-2 mt-2" data-barangid="<?php echo $id; ?>" data-barangnama="<?php echo $nm; ?>" data-barangharga="<?php echo $harjul; ?>">Add To Cart <span class="icon icon-xs ml-3"><i class="fas fa-arrow-right"></i></span></button>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    <?php
+    endforeach;
+    ?>
 
 </main>
 
@@ -104,6 +151,9 @@
 <script src="<?php echo base_url() ?>assets/vendor/waypoints/lib/jquery.waypoints.min.js"></script>
 <script src="<?php echo base_url() ?>assets/vendor/jarallax/dist/jarallax.min.js"></script>
 <script src="<?php echo base_url() ?>assets/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script src="<?php echo base_url() ?>assets/dashboard/assets/vendor/bootstrap-notify/bootstrap-notify.min.js"></script>
+
 
 <!-- Place this tag in your head or just before your close body tag. -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>
@@ -128,7 +178,12 @@
                 },
                 success: function(data) {
                     $('#detail_cart').html(data);
+
                 }
+            });
+            $.notify({
+                message: 'Berhasil menambahkan barang',
+                type: 'success'
             });
         });
 
@@ -147,6 +202,10 @@
                 success: function(data) {
                     $('#detail_cart').html(data);
                 }
+            });
+            $.notify({
+                message: 'Berhasil menghapus barang',
+                type: 'info'
             });
         });
     });
