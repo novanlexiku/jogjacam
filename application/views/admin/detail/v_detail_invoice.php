@@ -40,30 +40,38 @@ $inq = $a['bi_barang_qty'];
         <div class="col-8">
             <div class="card shadow-soft mb-5 mb-lg-6 px-2">
                 <div class="card-header border-light p-4">
-
-                    <h5>Nama : <?php echo $nm; ?></h5>
-                    <h5>No.Invoice : <?php echo $id; ?></h5>
-                    <h5>Tanggal: <?php echo $tgl; ?></h5>
-                    <h5>Tujuan Pengiriman : <?php echo $tuj; ?></h5>
-                    <h5>Status : <?php if ($sts == 'pengiriman') { ?>
-                            <span class="badge badge-success"><?php echo $sts; ?></span></h5>
-                <?php } else { ?>
-                    <span class="badge badge-warning"><?php echo $sts; ?></span></h5>
-                <?php } ?>
-                <?php if ($this->session->userdata('user_level') == '1' || $this->session->userdata('user_level') == '2') {
-                    if ($kon == '') { ?>
-                        <h5>Pembayaran : <span class="badge badge-danger">Belum melakukan pembayaran</span></h5>
+                    <form class="form-horizontal" method="post" action="<?php echo base_url() . 'index.php/admin/pemesanan/konfirmasi' ?>" enctype="multipart/form-data">
+                        <h5>Nama : <?php echo $nm; ?></h5>
+                        <h5>No.Invoice : <?php echo $id; ?></h5>
+                        <h5>Tanggal: <?php echo $tgl; ?></h5>
+                        <h5>Tujuan Pengiriman : <?php echo $tuj; ?></h5>
+                        <h5>Status : <?php if ($sts == 'pengiriman') { ?>
+                                <span class="badge badge-success"><?php echo $sts; ?></span></h5>
                     <?php } else { ?>
-                        <a data-fancybox="gallery" href="<?php echo base_url() . 'assets/upload/images/konfirmasi/' . $kon; ?>"><img src="<?php echo base_url() . 'assets/upload/images/konfirmasi/' . $kon; ?>"></a>
+                        <span class="badge badge-warning"><?php echo $sts; ?></span></h5>
                     <?php } ?>
-                    <?php } elseif ($this->session->userdata('user_level') == '3') {
-                    if ($kon == '') { ?>
-                        <h5>Pembayaran : <span class="badge badge-danger">Belum melakukan pembayaran</span></h5>
-                    <?php } else { ?>
-                        <a data-fancybox="gallery" href="<?php echo base_url() . 'assets/upload/images/konfirmasi/' . $kon; ?>"><img src="<?php echo base_url() . 'assets/upload/images/konfirmasi/' . $kon; ?>"></a>
-                    <?php } ?>
+                    <?php if ($this->session->userdata('user_level') == '1' || $this->session->userdata('user_level') == '2') {
+                        if ($kon == '') { ?>
+                            <h5>Pembayaran : <span class="badge badge-danger">Belum melakukan pembayaran</span></h5>
+                        <?php } else { ?>
+                            <a data-fancybox="gallery" href="<?php echo base_url() . 'assets/upload/images/konfirmasi/' . $kon; ?>"><img src="<?php echo base_url() . 'assets/upload/images/konfirmasi/' . $kon; ?>"></a>
+                        <?php } ?>
+                        <?php } elseif ($this->session->userdata('user_level') == '3') {
+                        if ($kon == '') { ?>
+                            <h5>Pembayaran : <span class="badge badge-danger">Belum melakukan pembayaran</span></h5>
+                            <input name="invoice_id" type="hidden" value="<?php echo $id; ?>">
 
-                <?php } ?>
+                            <div class="form-group">
+                                <label class="control-label col-xs-3">Konfirmasi</label>
+                                <div class="form-group">
+                                    <input type="file" name="filefoto" class="dropify" data-height="220" data-default-file="<?php echo base_url() . 'assets/upload/images/konfirmasi/' . $kon; ?>">
+                                </div>
+                            </div>
+                        <?php } else { ?>
+                            <a data-fancybox="gallery" href="<?php echo base_url() . 'assets/upload/images/konfirmasi/' . $kon; ?>"><img src="<?php echo base_url() . 'assets/upload/images/konfirmasi/' . $kon; ?>"></a>
+                        <?php } ?>
+
+                    <?php } ?>
                 </div>
                 <div class="card-body pt-5">
 
@@ -104,12 +112,21 @@ $inq = $a['bi_barang_qty'];
 
                     </table>
                 </div>
-                <div class="card-footer px-4 pb-4">
-                    <!-- Button -->
-                    <a href="<?php echo base_url() ?>" target="_blank" class="btn btn-block btn-outline-gray animate-up-2">
-                        Cetak <span class="icon icon-xs ml-3"><i class="fas fa-arrow-right"></i></span>
-                    </a>
-                </div>
+                <?php if ($this->session->userdata('user_level') == '1' || $this->session->userdata('user_level') == '2') { ?>
+                    <div class="card-footer px-4 pb-4">
+                        <!-- Button -->
+                        <a href="<?php echo base_url() ?>" target="_blank" class="btn btn-block btn-outline-gray animate-up-2">
+                            Cetak <span class="icon icon-xs ml-3"><i class="fas fa-arrow-right"></i></span>
+                        </a>
+                    </div>
+                <?php } else { ?>
+                    <div class="card-footer px-4 pb-4">
+                        <!-- Button -->
+                        <button type="submit" class="btn btn-block btn-outline-info animate-up-2">Konfirmasi</button>
+                    </div>
+                <?php } ?>
+                </form>
+
             </div>
         </div>
     </div>
@@ -137,7 +154,54 @@ $inq = $a['bi_barang_qty'];
 <script src="<?php echo base_url() ?>assets/dashboard/assets/js/dashboard.js?v=1.2.0"></script>
 <!-- Datatables JS -->
 <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.22/b-1.6.5/datatables.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#mydata').DataTable();
+        $('.dropify').dropify({
+            defaultFile: '',
+            messages: {
+                default: 'Drag atau drop untuk memilih Photo',
+                replace: 'Ganti',
+                remove: 'Hapus',
+                error: 'error'
+            }
+        });
+        $('.summernote').summernote({
+            height: 200,
+            focus: true,
+            toolbar: [
+                ['style', ['style']],
+                ['font', ['bold', 'italic', 'underline', 'clear']],
+                ['fontsize', ['fontsize']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['insert', ['link', 'picture', 'hr']],
+                ['view', ["fullscreen", "codeview", "help"]],
+            ],
+            onImageUpload: function(files, editor, welEditable) {
+                sendFile(files[0], editor, welEditable);
+            }
+        });
 
+
+
+        function sendFile(file, editor, welEditable) {
+            data = new FormData();
+            data.append("file", file);
+            $.ajax({
+                data: data,
+                type: "POST",
+                url: "<?php echo site_url() ?>assets/upload/staff",
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function(url) {
+                    editor.insertImage(welEditable, url);
+                }
+            });
+        }
+    });
+</script>
 
 </body>
 

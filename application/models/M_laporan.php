@@ -1,60 +1,75 @@
 <?php
-class M_laporan extends CI_Model{
-	function get_stok_barang(){
-		$hsl=$this->db->query("SELECT kategori_id,kategori_nama,barang_nama,barang_stok FROM tbl_kategori JOIN tbl_barang ON kategori_id=barang_kategori_id GROUP BY kategori_id,barang_nama");
+class M_laporan extends CI_Model
+{
+	function get_stok_barang()
+	{
+		$hsl = $this->db->query("SELECT kategori_id,kategori_nama,barang_nama,barang_stok FROM tbl_kategori JOIN tbl_barang ON kategori_id=barang_kategori_id GROUP BY kategori_id,barang_nama");
 		return $hsl;
 	}
-	function get_data_barang(){
-		$hsl=$this->db->query("SELECT kategori_id,barang_id,kategori_nama,barang_nama,barang_satuan,barang_harjul,barang_stok FROM tbl_kategori JOIN tbl_barang ON kategori_id=barang_kategori_id GROUP BY kategori_id,barang_nama");
+	function get_data_barang()
+	{
+		$hsl = $this->db->query("SELECT kategori_id,barang_id,kategori_nama,barang_nama,barang_satuan,barang_harjul,barang_stok FROM tbl_kategori JOIN tbl_barang ON kategori_id=barang_kategori_id GROUP BY kategori_id,barang_nama");
 		return $hsl;
 	}
-	function get_data_penjualan(){
-		$hsl=$this->db->query("SELECT jual_nofak,DATE_FORMAT(jual_tanggal,'%d %M %Y') AS jual_tanggal,jual_total,d_jual_barang_id,d_jual_barang_nama,d_jual_barang_satuan,d_jual_barang_harpok,d_jual_barang_harjul,d_jual_qty,d_jual_diskon,d_jual_total FROM tbl_jual JOIN tbl_detail_jual ON jual_nofak=d_jual_nofak ORDER BY jual_nofak DESC");
+	function get_data_penjualan()
+	{
+		$hsl = $this->db->query("SELECT invoice_id, DATE_FORMAT(invoice_tanggal,'%d %M %Y') AS invoice_tanggal, invoice_user_id, invoice_user_nama, invoice_no_hp, invoice_tujuan, invoice_bank_id, invoice_total, invoice_status FROM tbl_invoice WHERE invoice_status = 'pengiriman' ORDER BY invoice_id DESC");
 		return $hsl;
 	}
-	function get_total_penjualan(){
-		$hsl=$this->db->query("SELECT jual_nofak,DATE_FORMAT(jual_tanggal,'%d %M %Y') AS jual_tanggal,jual_total,d_jual_barang_id,d_jual_barang_nama,d_jual_barang_satuan,d_jual_barang_harpok,d_jual_barang_harjul,d_jual_qty,d_jual_diskon,sum(d_jual_total) as total FROM tbl_jual JOIN tbl_detail_jual ON jual_nofak=d_jual_nofak ORDER BY jual_nofak DESC");
+	function get_total_penjualan()
+	{
+		$hsl = $this->db->query("SELECT invoice_id, DATE_FORMAT(invoice_tanggal,'%d %M %Y') AS invoice_tanggal, invoice_user_id, invoice_user_nama, invoice_no_hp, invoice_tujuan, invoice_bank_id, invoice_total, invoice_status,sum(invoice_total) as total FROM tbl_invoice WHERE invoice_status = 'pengiriman'");
 		return $hsl;
 	}
-	function get_data_jual_pertanggal($tanggal){
-		$hsl=$this->db->query("SELECT jual_nofak,DATE_FORMAT(jual_tanggal,'%d %M %Y') AS jual_tanggal,d_jual_barang_id,d_jual_barang_nama,d_jual_barang_satuan,d_jual_barang_harpok,d_jual_barang_harjul,d_jual_qty,d_jual_diskon,d_jual_total FROM tbl_jual JOIN tbl_detail_jual ON jual_nofak=d_jual_nofak WHERE DATE(jual_tanggal)='$tanggal' ORDER BY jual_nofak DESC");
+	function get_data_jual_pertanggal($tanggal)
+	{
+		$hsl = $this->db->query("SELECT invoice_id, DATE_FORMAT(invoice_tanggal,'%d %M %Y') AS invoice_tanggal,invoice_user_id, invoice_user_nama, invoice_no_hp, invoice_tujuan, invoice_bank_id, invoice_total, invoice_status FROM tbl_invoice WHERE invoice_status = 'pengiriman' and DATE(invoice_tanggal)='$tanggal' ORDER BY invoice_id DESC");
 		return $hsl;
 	}
-	function get_data__total_jual_pertanggal($tanggal){
-		$hsl=$this->db->query("SELECT jual_nofak,DATE_FORMAT(jual_tanggal,'%d %M %Y') AS jual_tanggal,d_jual_barang_id,d_jual_barang_nama,d_jual_barang_satuan,d_jual_barang_harpok,d_jual_barang_harjul,d_jual_qty,d_jual_diskon,SUM(d_jual_total) as total FROM tbl_jual JOIN tbl_detail_jual ON jual_nofak=d_jual_nofak WHERE DATE(jual_tanggal)='$tanggal' ORDER BY jual_nofak DESC");
+	function get_data_total_jual_pertanggal($tanggal)
+	{
+		$hsl = $this->db->query("SELECT invoice_id,DATE_FORMAT(invoice_tanggal,'%d %M %Y') AS invoice_tanggal,invoice_user_id, invoice_user_nama, invoice_no_hp, invoice_tujuan, invoice_bank_id, invoice_total, invoice_status,SUM(invoice_total) as total FROM tbl_invoice WHERE invoice_status = 'pengiriman' and DATE(invoice_tanggal)='$tanggal'");
 		return $hsl;
 	}
-	function get_bulan_jual(){
-		$hsl=$this->db->query("SELECT DISTINCT DATE_FORMAT(jual_tanggal,'%M %Y') AS bulan FROM tbl_jual");
+	function get_bulan_jual()
+	{
+		$hsl = $this->db->query("SELECT DISTINCT DATE_FORMAT(invoice_tanggal,'%M %Y') AS bulan FROM tbl_invoice where invoice_status='pengiriman'");
 		return $hsl;
 	}
-	function get_tahun_jual(){
-		$hsl=$this->db->query("SELECT DISTINCT YEAR(jual_tanggal) AS tahun FROM tbl_jual");
+	function get_tahun_jual()
+	{
+		$hsl = $this->db->query("SELECT DISTINCT YEAR(invoice_tanggal) AS tahun FROM tbl_invoice where invoice_status='pengiriman'");
 		return $hsl;
 	}
-	function get_jual_perbulan($bulan){
-		$hsl=$this->db->query("SELECT jual_nofak,DATE_FORMAT(jual_tanggal,'%M %Y') AS bulan,DATE_FORMAT(jual_tanggal,'%d %M %Y') AS jual_tanggal,d_jual_barang_id,d_jual_barang_nama,d_jual_barang_satuan,d_jual_barang_harpok,d_jual_barang_harjul,d_jual_qty,d_jual_diskon,d_jual_total FROM tbl_jual JOIN tbl_detail_jual ON jual_nofak=d_jual_nofak WHERE DATE_FORMAT(jual_tanggal,'%M %Y')='$bulan' ORDER BY jual_nofak DESC");
+	function get_jual_perbulan($bulan)
+	{
+		$hsl = $this->db->query("SELECT invoice_id,DATE_FORMAT(invoice_tanggal,'%M %Y') AS bulan,DATE_FORMAT(invoice_tanggal,'%d %M %Y') AS invoice_tanggal,invoice_user_id, invoice_user_nama, invoice_no_hp, invoice_tujuan, invoice_bank_id, invoice_total, invoice_status FROM tbl_invoice WHERE invoice_status='pengiriman' and DATE_FORMAT(invoice_tanggal,'%M %Y')='$bulan' ORDER BY invoice_id DESC");
 		return $hsl;
 	}
-	function get_total_jual_perbulan($bulan){
-		$hsl=$this->db->query("SELECT jual_nofak,DATE_FORMAT(jual_tanggal,'%M %Y') AS bulan,DATE_FORMAT(jual_tanggal,'%d %M %Y') AS jual_tanggal,d_jual_barang_id,d_jual_barang_nama,d_jual_barang_satuan,d_jual_barang_harpok,d_jual_barang_harjul,d_jual_qty,d_jual_diskon,SUM(d_jual_total) as total FROM tbl_jual JOIN tbl_detail_jual ON jual_nofak=d_jual_nofak WHERE DATE_FORMAT(jual_tanggal,'%M %Y')='$bulan' ORDER BY jual_nofak DESC");
+	function get_total_jual_perbulan($bulan)
+	{
+		$hsl = $this->db->query("SELECT invoice_id,DATE_FORMAT(invoice_tanggal,'%M %Y') AS bulan,DATE_FORMAT(invoice_tanggal,'%d %M %Y') AS invoice_tanggal,invoice_user_id, invoice_user_nama, invoice_no_hp, invoice_tujuan, invoice_bank_id, invoice_total, invoice_status,SUM(invoice_total) as total FROM tbl_invoice WHERE invoice_status='pengiriman' and DATE_FORMAT(invoice_tanggal,'%M %Y')='$bulan' ORDER BY invoice_id DESC");
 		return $hsl;
 	}
-	function get_jual_pertahun($tahun){
-		$hsl=$this->db->query("SELECT jual_nofak,YEAR(jual_tanggal) AS tahun,DATE_FORMAT(jual_tanggal,'%M %Y') AS bulan,DATE_FORMAT(jual_tanggal,'%d %M %Y') AS jual_tanggal,d_jual_barang_id,d_jual_barang_nama,d_jual_barang_satuan,d_jual_barang_harpok,d_jual_barang_harjul,d_jual_qty,d_jual_diskon,d_jual_total FROM tbl_jual JOIN tbl_detail_jual ON jual_nofak=d_jual_nofak WHERE YEAR(jual_tanggal)='$tahun' ORDER BY jual_nofak DESC");
+	function get_jual_pertahun($tahun)
+	{
+		$hsl = $this->db->query("SELECT invoice_id,YEAR(invoice_tanggal) AS tahun,DATE_FORMAT(invoice_tanggal,'%M %Y') AS bulan,DATE_FORMAT(invoice_tanggal,'%d %M %Y') AS invoice_tanggal,invoice_user_id, invoice_user_nama, invoice_no_hp, invoice_tujuan, invoice_bank_id, invoice_total, invoice_status FROM tbl_invoice WHERE invoice_status='pengiriman' and YEAR(invoice_tanggal)='$tahun' ORDER BY invoice_id DESC");
 		return $hsl;
 	}
-	function get_total_jual_pertahun($tahun){
-		$hsl=$this->db->query("SELECT jual_nofak,YEAR(jual_tanggal) AS tahun,DATE_FORMAT(jual_tanggal,'%M %Y') AS bulan,DATE_FORMAT(jual_tanggal,'%d %M %Y') AS jual_tanggal,d_jual_barang_id,d_jual_barang_nama,d_jual_barang_satuan,d_jual_barang_harpok,d_jual_barang_harjul,d_jual_qty,d_jual_diskon,SUM(d_jual_total) as total FROM tbl_jual JOIN tbl_detail_jual ON jual_nofak=d_jual_nofak WHERE YEAR(jual_tanggal)='$tahun' ORDER BY jual_nofak DESC");
+	function get_total_jual_pertahun($tahun)
+	{
+		$hsl = $this->db->query("SELECT invoice_id,YEAR(invoice_tanggal) AS tahun,DATE_FORMAT(invoice_tanggal,'%M %Y') AS bulan,DATE_FORMAT(invoice_tanggal,'%d %M %Y') AS invoice_tanggal,invoice_user_id, invoice_user_nama, invoice_no_hp, invoice_tujuan, invoice_bank_id, invoice_total, invoice_status,SUM(invoice_total) as total FROM tbl_invoice WHERE invoice_status='pengiriman' and YEAR(invoice_tanggal)='$tahun' ORDER BY invoice_id DESC");
 		return $hsl;
 	}
 	//=========Laporan Laba rugi============
-	function get_lap_laba_rugi($bulan){
-		$hsl=$this->db->query("SELECT DATE_FORMAT(jual_tanggal,'%d %M %Y %H:%i:%s') as jual_tanggal,d_jual_barang_nama,d_jual_barang_satuan,d_jual_barang_harpok,d_jual_barang_harjul,(d_jual_barang_harjul-d_jual_barang_harpok) AS keunt,d_jual_qty,d_jual_diskon,((d_jual_barang_harjul-d_jual_barang_harpok)*d_jual_qty)-(d_jual_qty*d_jual_diskon) AS untung_bersih FROM tbl_jual JOIN tbl_detail_jual ON jual_nofak=d_jual_nofak WHERE DATE_FORMAT(jual_tanggal,'%M %Y')='$bulan'");
+	function get_lap_laba_rugi($bulan)
+	{
+		$hsl = $this->db->query("SELECT i.invoice_user_id, DATE_FORMAT(invoice_tanggal,'%d %M %Y') as invoice_tanggal, i.invoice_id, i.invoice_user_nama, i.invoice_no_hp, i.invoice_tujuan, i.invoice_bank_id, i.invoice_total, i.invoice_status,b.bi_invoice_id, b.bi_barang_nama, b.bi_barang_harjul, b.bi_barang_qty, c.barang_id, c.barang_gambar, c.barang_nama, c.barang_deskripsi, c.barang_satuan, c.barang_harpok, c.barang_harjul, c.barang_harjul_grosir, c.barang_stok, c.barang_min_stok, (b.bi_barang_harjul-c.barang_harpok) AS keunt, b.bi_barang_qty, ((b.bi_barang_harjul-c.barang_harpok)*b.bi_barang_qty) AS untung_bersih FROM tbl_invoice i, tbl_barang_invoice b, tbl_barang c WHERE i.invoice_id=b.bi_invoice_id and b.bi_barang_id=c.barang_id and i.invoice_status='pengiriman' and DATE_FORMAT(invoice_tanggal,'%M %Y')='$bulan'");
 		return $hsl;
 	}
-	function get_total_lap_laba_rugi($bulan){
-		$hsl=$this->db->query("SELECT DATE_FORMAT(jual_tanggal,'%M %Y') AS bulan,d_jual_barang_nama,d_jual_barang_satuan,d_jual_barang_harpok,d_jual_barang_harjul,(d_jual_barang_harjul-d_jual_barang_harpok) AS keunt,d_jual_qty,d_jual_diskon,SUM(((d_jual_barang_harjul-d_jual_barang_harpok)*d_jual_qty)-(d_jual_qty*d_jual_diskon)) AS total FROM tbl_jual JOIN tbl_detail_jual ON jual_nofak=d_jual_nofak WHERE DATE_FORMAT(jual_tanggal,'%M %Y')='$bulan'");
+	function get_total_lap_laba_rugi($bulan)
+	{
+		$hsl = $this->db->query("SELECT i.invoice_user_id, DATE_FORMAT(invoice_tanggal,'%M %Y') AS bulan,i.invoice_id, i.invoice_user_nama, i.invoice_no_hp, i.invoice_tujuan, i.invoice_bank_id, i.invoice_total, i.invoice_status,b.bi_invoice_id, b.bi_barang_nama, b.bi_barang_harjul, b.bi_barang_qty, c.barang_id, c.barang_gambar, c.barang_nama, c.barang_deskripsi, c.barang_satuan, c.barang_harpok, c.barang_harjul, c.barang_harjul_grosir, c.barang_stok, c.barang_min_stok, (b.bi_barang_harjul-c.barang_harpok) AS keunt, b.bi_barang_qty,SUM(((b.bi_barang_harjul-c.barang_harpok)*b.bi_barang_qty)) AS total FROM tbl_invoice i, tbl_barang_invoice b, tbl_barang c WHERE i.invoice_id=b.bi_invoice_id and b.bi_barang_id=c.barang_id and i.invoice_status='pengiriman' and DATE_FORMAT(invoice_tanggal,'%M %Y')='$bulan'");
 		return $hsl;
 	}
 }

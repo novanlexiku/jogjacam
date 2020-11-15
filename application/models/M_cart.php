@@ -41,6 +41,7 @@ class M_cart extends CI_Model
         $this->db->query("INSERT INTO tbl_invoice (invoice_id, invoice_user_id, invoice_user_nama, invoice_no_hp, invoice_tujuan, invoice_bank_id, invoice_tanggal, invoice_total, invoice_status) VALUES ('$nofak','$id','$nama','$nohp','$tujuan','$bank','$date','$total','$status')");
         foreach ($this->cart->contents() as $item) {
             $data = array(
+                'bi_barang_id'             => $item['id'],
                 'bi_invoice_id'             =>    $nofak,
                 'bi_barang_nama'    =>    $item['name'],
                 'bi_barang_harjul'    =>    $item['price'],

@@ -61,6 +61,7 @@ $route['daftarstaff'] = 'admin/staff';
 $route['pemesanan'] = 'admin/pemesanan';
 $route['pengiriman'] = 'admin/pengiriman';
 $route['promo'] = 'admin/hotdeals';
+$route['laporan'] = 'admin/laporan';
 
 $route['aksesoris'] = 'home/aksesoris';
 $route['kamera'] = 'home/kamera';
