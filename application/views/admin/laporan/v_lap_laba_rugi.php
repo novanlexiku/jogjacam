@@ -53,6 +53,7 @@
             <tbody>
                 <?php
                 $no = 0;
+                $total = 0;
                 foreach ($data->result_array() as $i) {
                     $no++;
                     $tgl = $i['invoice_tanggal'];
@@ -60,9 +61,11 @@
                     $satuan = $i['barang_satuan'];
                     $harpok = $i['barang_harpok'];
                     $harjul = $i['barang_harjul'];
-                    $untung_perunit = $i['keunt'];
+                    $untung_perunit = $harjul - $harpok;
                     $qty = $i['bi_barang_qty'];
-                    $untung_bersih = $i['untung_bersih'];
+                    $untung_bersih = $untung_perunit * $qty;
+                    $total = $untung_perunit + $total;
+
                 ?>
                     <tr>
                         <td style="text-align:center;"><?php echo $no; ?></td>
@@ -81,7 +84,7 @@
 
                 <tr>
                     <td colspan="8" style="text-align:center;"><b>Total Keuntungan</b></td>
-                    <td style="text-align:right;"><b><?php echo 'Rp ' . number_format($b['total']); ?></b></td>
+                    <td style="text-align:right;"><b><?php echo 'Rp ' . number_format($total); ?></b></td>
                 </tr>
             </tfoot>
         </table>

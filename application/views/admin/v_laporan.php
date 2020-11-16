@@ -82,14 +82,6 @@
 
                             <tr>
                                 <td style="text-align:center;vertical-align:middle">6</td>
-                                <td style="vertical-align:middle;">Laporan Penjualan PerTahun</td>
-                                <td style="text-align:center;">
-                                    <a class="btn btn-sm btn-default" href="#lap_jual_pertahun" data-toggle="modal"><span class="fa fa-print"></span> Print</a>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td style="text-align:center;vertical-align:middle">7</td>
                                 <td style="vertical-align:middle;">Laporan Laba/Rugi</td>
                                 <td style="text-align:center;">
                                     <a class="btn btn-sm btn-default" href="#lap_laba_rugi" data-toggle="modal"><span class="fa fa-print"></span> Print</a>
